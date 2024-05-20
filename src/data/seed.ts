@@ -22,7 +22,6 @@ const seedDB = async () => {
     await Film.deleteMany({})
     await User.insertMany(userData)
     await Film.insertMany(filmData)
-    console.log('seeded????')
 }
 
 const seed = async () => {
