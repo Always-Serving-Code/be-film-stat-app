@@ -1,0 +1,5 @@
+{
+    "GET /api": {
+        "description": "Serves a json file containing information on all the available endpoints"
+    }
+}
