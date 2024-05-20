@@ -40,4 +40,4 @@ const seed = () => __awaiter(void 0, void 0, void 0, function* () {
     yield seedDB();
     yield mongoose_1.default.connection.close();
 });
-seed();
+exports.default = seed;

@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { Film } from '../schemas /films-schemas';
 import filmData from './film-data.json'
-import { MongoClient } from 'mongodb';
 import { User } from '../schemas /users-schema';
 import userData from './users-data.json'
 
@@ -32,4 +31,4 @@ const seed = async () => {
     await mongoose.connection.close()
 }
 
-seed()
+export default seed

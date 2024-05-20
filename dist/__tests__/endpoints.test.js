@@ -14,14 +14,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const src_1 = __importDefault(require("../src"));
 const supertest_1 = __importDefault(require("supertest"));
-describe('/api', () => {
-    test('GET /api - responds with endpoints.json', () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get('/api').expect(200);
-        console.log(body.endpoints);
+const seed_1 = __importDefault(require("../src/data/seed"));
+const db_connection_1 = __importDefault(require("../src/db-connection"));
+// beforeEach(()=>{
+//  return seed()
+// })
+// afterAll(()=>{
+// 	db.connection.close()
+// })
+beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0, db_connection_1.default)();
+}));
+afterEach(() => __awaiter(void 0, void 0, void 0, function* () {
+    yield (0, seed_1.default)();
+}));
+describe("/api", () => {
+    test("GET /api - responds with endpoints.json", () => __awaiter(void 0, void 0, void 0, function* () {
+        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api").expect(200);
         expect(body.endpoints).toMatchObject({
-            'GET /api': {
+            "GET /api": {
                 description: expect.any(String),
             },
         });
     }));
+    //test("", async () => {});
+    // test('', async ()=> {
+    // })
 });

@@ -12,17 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mongoDatabase = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 mongoose_1.default.Promise = global.Promise;
-const mongoDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
+const db = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(process.env.ATLAS_URI);
     }
     catch (_a) {
-        console.log('database connection in not working :(');
+        console.log('database connection is not working :(');
     }
 });
-exports.mongoDatabase = mongoDatabase;
+exports.default = db;
