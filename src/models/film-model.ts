@@ -15,7 +15,7 @@ interface IFilm {
 }
 
 const filmSchema = new Schema({
-  _id: String,
+  _id: { type: String },
   title: { type: String, required: true },
   directors: { type: [String], required: true },
   genres: { type: [String], required: true },
