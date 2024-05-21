@@ -23,8 +23,21 @@ describe("/api", () => {
       },
     });
   });
-  //test("", async () => {});
-  // test('', async ()=> {
 
-  // })
+describe("/api/users", () => {
+  test("GET /api - responds with an array of all users", async () => {
+    const { body } = await request(app).get("/api/users").expect(200);
+    console.log(body);
+    const { users } = body;
+    expect(users.length).toBe(1);
+    users.forEach((user: object) => {
+      expect(user).toMatchObject({
+        username: String,
+        password: String,
+        email: String,
+        films: Array,
+        stats: Object,
+      });
+    });
+  });
 });
