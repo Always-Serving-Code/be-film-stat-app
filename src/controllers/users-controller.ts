@@ -2,6 +2,7 @@
 import { Response, Request, NextFunction } from "express";
 import { User } from "../models/users-model";
 import { dbClose, dbOpen } from "../db-connection";
+import { Error } from "mongoose";
 
 // export const addUser = async (req: Request, res: Response) => {
 //     const userToAdd: object = req.body
@@ -29,13 +30,12 @@ export const getUserById = async (
     await dbOpen();
     const { user_id } = req.params;
     const user = await User.find({ _id: user_id });
-    console.log(user);
     if (!user.length) {
-      throw new Error();
+      res.status(404).send({ msg: "Not Found" });
     }
     res.status(200).send({ user });
     await dbClose();
-  } catch (err) {
+  } catch (err: any) {
     next(err);
   }
 };
