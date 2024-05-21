@@ -29,7 +29,13 @@ export const getUserById = async (
     await dbOpen();
     const { user_id } = req.params;
     const user = await User.find({ _id: user_id });
+    console.log(user);
+    if (!user.length) {
+      throw new Error();
+    }
     res.status(200).send({ user });
     await dbClose();
-  } catch (next) {}
+  } catch (err) {
+    next(err);
+  }
 };
