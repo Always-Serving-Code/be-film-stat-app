@@ -57,20 +57,19 @@ export const patchUserById = async (
     }
 
     let currentRuntime = user[0].stats["hours_watched"];
-     currentRuntime += runtime;
+    currentRuntime += runtime;
 
     const updatedUser = await User.findByIdAndUpdate(
       user_id,
       {
+        $push: { films: films },
         $set: {
-          films: films,
           "stats.hours_watched": currentRuntime,
           "stats.num_films_watched": counter,
         },
       },
       { new: true }
     );
-
     res.status(200).send({ user: updatedUser });
   } catch (err) {
     next(err);
