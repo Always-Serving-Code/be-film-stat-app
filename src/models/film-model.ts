@@ -25,7 +25,7 @@ const filmSchema = new Schema({
   lead_actors: { type: [String], required: true },
   runtime: { type: Number, required: true },
   date_watched: { type: Date, default: Date.now },
-  rating: { type: Number },
+  rating: Number
 });
 
 const Film = mongoose.model("Film", filmSchema);

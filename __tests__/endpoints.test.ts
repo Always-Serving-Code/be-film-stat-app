@@ -54,6 +54,7 @@ describe("/api/users", () => {
   });
 });
 
+
 describe("/api/users/:user_id", () => {
   test("GET 200/api/users/:user_id - responds with an object of user associated with the user id", async () => {
     const { body } = await request(app).get("/api/users/2").expect(200);
@@ -82,4 +83,25 @@ describe("/api/users/:user_id", () => {
     console.log(msg);
     expect(msg).toBe("Not Found");
   });
+
+describe("/api/films", () => {
+  test("GET /api - responds with an array of all films", async () => {
+    const { body } = await request(app).get("/api/films").expect(200);
+    const { films } = body;
+    expect(films.length).toBe(30);
+    films.forEach((film: object) => {
+      expect(film).toMatchObject({
+        _id: expect.any(String),
+        title: expect.any(String),
+        directors: expect.any(Array),
+        genres: expect.any(Array),
+        release_year: expect.any(Number),
+        synopsis: expect.any(String),
+        poster_url: expect.any(String),
+        lead_actors: expect.any(Array),
+        runtime: expect.any(Number)
+      });
+    });
+  });
+
 });
