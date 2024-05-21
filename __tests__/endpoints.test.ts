@@ -3,8 +3,6 @@ import request from "supertest";
 
 import seed from "../src/data/seed";
 import { dbOpen, dbClose } from "../src/db-connection";
-import { IncomingMessage } from "http";
-import { response } from "express";
 
 beforeAll(async () => {
   await dbOpen();
@@ -27,16 +25,16 @@ describe("404 General Not Found Error", () => {
   });
 });
 
-// describe("/api", () => {
-//   test("GET 200 /api - responds with endpoints.json", async () => {
-//     const { body } = await request(app).get("/api").expect(200);
-//     expect(body.endpoints).toMatchObject({
-//       "GET /api": {
-//         description: expect.any(String),
-//       },
-//     });
-//   });
-// });
+describe("/api", () => {
+  test("GET 200 /api - responds with endpoints.json", async () => {
+    const { body } = await request(app).get("/api").expect(200);
+    expect(body.endpoints).toMatchObject({
+      "GET /api": {
+        description: expect.any(String),
+      },
+    });
+  });
+});
 
 describe("/api/users", () => {
   test("GET 200 /api/users - responds with an array of all users", async () => {
@@ -80,7 +78,6 @@ describe("/api/users/:user_id", () => {
   test("GET 404 /api/users/:user_id - responds with an error message when passed an id that does not exist", async () => {
     const { body } = await request(app).get("/api/users/200").expect(404);
     const { msg } = body;
-    console.log(msg);
     expect(msg).toBe("Not Found");
   });
 });
@@ -102,6 +99,76 @@ describe("/api/films", () => {
         lead_actors: expect.any(Array),
         runtime: expect.any(Number),
       });
+    });
+  });
+});
+
+describe("/api/users/:user_id", () => {
+  test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
+    const film = {
+      _id: 1,
+      title: "The Lord of The Rings: The Fellowship of the Ring",
+      directors: "Peter Jackson",
+      genres: ["fantasy", "action", "adventure"],
+      release_year: 2001,
+      synopsis:
+        "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+      lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+      runtime: 178,
+      rating: 5,
+      date_watched: "2024-05-22T13:59:41.677Z",
+    };
+    const { body } = await request(app)
+      .patch("/api/users/2")
+      .send({ films: film })
+      .expect(200);
+    const { user } = body;
+
+    expect(user).toMatchObject({
+      _id: 2,
+      username: "northy",
+      password: "titlo22",
+      email: "norty22@gmail.com",
+      films: [film],
+      stats: {
+        num_films_watched: 1,
+        hours_watched: 178,
+      },
+    });
+  });
+
+  test("PATCH 200 /api/users/:user_id - responds with an object with an updated user with number of films not 0 after adding a film", async () => {
+    const film = {
+      _id: 1,
+      title: "The Lord of The Rings: The Fellowship of the Ring",
+      directors: "Peter Jackson",
+      genres: ["fantasy", "action", "adventure"],
+      release_year: 2001,
+      synopsis:
+        "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+      lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+      runtime: 178,
+      rating: 5,
+      date_watched: "2024-05-22T13:59:41.677Z",
+    };
+    const { body } = await request(app)
+      .patch("/api/users/5")
+      .send({ films: film })
+      .expect(200);
+    const { user } = body;
+
+    expect(user).toMatchObject({
+      _id: 5,
+      username: "PumpkinHead",
+      password: "watermelon",
+      email: "pumpkin@gmail.com",
+      films: [film],
+      stats: {
+        num_films_watched: 5,
+        hours_watched: 940,
+      },
     });
   });
 });
