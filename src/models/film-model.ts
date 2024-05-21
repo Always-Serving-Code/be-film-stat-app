@@ -1,6 +1,7 @@
 import mongoose, { Schema, model } from "mongoose";
 
 interface IFilm {
+  _id?: string;
   title: string;
   directors: string[];
   genres: string[];
@@ -14,6 +15,7 @@ interface IFilm {
 }
 
 const filmSchema = new Schema({
+  _id: String,
   title: { type: String, required: true },
   directors: { type: [String], required: true },
   genres: { type: [String], required: true },
@@ -23,7 +25,7 @@ const filmSchema = new Schema({
   lead_actors: { type: [String], required: true },
   runtime: { type: Number, required: true },
   date_watched: { type: Date, default: Date.now },
-  rating: { type: Number },
+  rating: Number
 });
 
 const Film = mongoose.model("Film", filmSchema);

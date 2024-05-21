@@ -40,7 +40,7 @@ describe("/api/users", () => {
   test("GET /api - responds with an array of all users", async () => {
     const { body } = await request(app).get("/api/users").expect(200);
     const { users } = body;
-    expect(users.length).toBe(1);
+    expect(users.length).toBe(5);
     users.forEach((user: object) => {
       expect(user).toMatchObject({
         _id: expect.any(String),
@@ -49,6 +49,27 @@ describe("/api/users", () => {
         email: expect.any(String),
         films: expect.any(Array),
         stats: expect.any(Object),
+      });
+    });
+  });
+});
+
+describe("/api/films", () => {
+  test("GET /api - responds with an array of all films", async () => {
+    const { body } = await request(app).get("/api/films").expect(200);
+    const { films } = body;
+    expect(films.length).toBe(30);
+    films.forEach((film: object) => {
+      expect(film).toMatchObject({
+        _id: expect.any(String),
+        title: expect.any(String),
+        directors: expect.any(Array),
+        genres: expect.any(Array),
+        release_year: expect.any(Number),
+        synopsis: expect.any(String),
+        poster_url: expect.any(String),
+        lead_actors: expect.any(Array),
+        runtime: expect.any(Number)
       });
     });
   });
