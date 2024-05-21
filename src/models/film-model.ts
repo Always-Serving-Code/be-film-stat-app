@@ -1,6 +1,7 @@
 import mongoose, { Schema, model } from "mongoose";
 
 interface IFilm {
+  _id?: string;
   title: string;
   directors: string[];
   genres: string[];
@@ -14,6 +15,7 @@ interface IFilm {
 }
 
 const filmSchema = new Schema({
+  _id: { type: String },
   title: { type: String, required: true },
   directors: { type: [String], required: true },
   genres: { type: [String], required: true },
