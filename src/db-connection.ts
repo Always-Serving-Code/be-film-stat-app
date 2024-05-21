@@ -6,14 +6,13 @@ dotenv.config();
 
 mongoose.Promise = global.Promise;
 
-const connectToDatabase = async (): Promise<void> => {
-	const options: ConnectOptions = {
-		useNewUrlParser: true,
-		useFindAndModify: false,
-		useCreateIndex: true,
-		useUnifiedTopology: true,
-	};
-	await mongoose.connect(process.env.ATLAS_URI, options);
+const mongoDatabase = async (): Promise<void> => {
+	try {
+	await mongoose.connect(process.env.ATLAS_URI)
+	}
+	catch {
+		console.log('database connection in not working :(')
+	}
 };
 
-export { connectToDatabase };
+export { mongoDatabase };

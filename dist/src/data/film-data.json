@@ -1,0 +1,334 @@
+[
+    {
+        "title": "The Lord of The Rings: The Fellowship of the Ring",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2001,
+        "synopsis": "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "poster_url": "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 178
+    },
+    {
+        "title": "The Lord of The Rings: The Two Towers",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2002,
+        "synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+        "poster_url": "https://artofthemovies.co.uk/cdn/shop/products/lord_of_the_rings_the_two_towers_NG06275_B_2_framed1-423634.jpg?v=1611688137",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 235
+    },
+    {
+        "title": "The Lord of The Rings: The Return of the King",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2003,
+        "synopsis": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+        "poster_url": "https://static.posters.cz/image/1300/posters/the-lord-of-the-rings-the-return-of-the-king-i104633.jpg",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 201
+    },
+    {
+        "title": "Midsommar",
+        "directors": "Ari Aster",
+        "genres": ["drama", "horror", "mystery"],
+        "release_year": 2019,
+        "synopsis": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
+        "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKk36ZSsCK9NVLN-H10vITUFK33gfpBeYenRQ8wF3sww&s",
+        "lead_actors": ["Florence Pugh", "Jack Reynor"],
+        "runtime": 148
+    },
+    {
+        "title": "Hereditary",
+        "directors": "Ari Aster",
+        "genres": ["drama", "horror", "mystery"],
+        "release_year": 2018,
+        "synopsis": "A grieving family is haunted by tragic and disturbing occurrences.",
+        "poster_url": "https://cdn.hmv.com/r/w-640/hmv/files/eb/eb91ae7a-8c65-4380-8651-8166f05d8dee.jpg",
+        "lead_actors": ["Toni Collette", "Milly Shapiro"],
+        "runtime": 127
+    },
+    {
+        "title": "Hercules",
+        "directors": ["Ron Clements", "John Musker"],
+        "genres": ["animation", "action", "adventure", "romance"],
+        "release_year": 1997,
+        "synopsis": "The son of Zeus and Hera is stripped of his immortality as an infant and must become a true hero in order to reclaim it.",
+        "poster_url": "https://lumiere-a.akamaihd.net/v1/images/p_hercules_19870_e316619f.jpeg",
+        "lead_actors": ["Tate Donovan", "Susan Egan", "James Woods"],
+        "runtime": 93
+    },
+    {
+        "title": "Pocahontas",
+        "directors": ["Mike Gabriel", "Eric Goldberg"],
+        "genres": ["animation, action, adventure, romance"],
+        "release_year": 1995,
+        "synopsis": "An English soldier and the daughter of an Algonquin chief share a romance when English colonists invade seventeenth century Virginia.",
+        "poster_url": "https://ictnews.org/archive/disney-exec-sexy-historical-inaccuracies-harms-disneys-pocahontas",
+        "lead_actors": ["Mel Gibson", "Christian Bale", "Irene Bedard"],
+        "runtime": 93
+    },
+    {
+        "title": "Irish Wish",
+        "directors": ["Janeen Damian"],
+        "genres": ["romance", "comedy", "fantasy", "drama"],
+        "release_year": 2024,
+        "synopsis": "When the love of her life gets engaged to her friend, Maddie puts her feelings aside to be a bridesmaid at their wedding in Ireland. Days before the wedding, Maddie makes a spontaneous wish for true love, only to wake up as the bride-to-be.",
+        "poster_url": "https://image.tmdb.org/t/p/original/5kbmv481q1Xw5IG1nyALYgRTPLg.jpg",
+        "lead_actors": ["Lindsay Lohan", "Ed Speleers", "Alexander Vlahos"],
+        "runtime": 94
+    },
+    {
+        "title": "Alien",
+        "directors": ["Ridley Scott"],
+        "genres": ["horror", "sci-fi", "action", "suspense"],
+        "release_year": 1979,
+        "synopsis": "The crew of a spacecraft, Nostromo, intercept a distress signal from a planet and set out to investigate it. However, to their horror, they are attacked by an alien which later invades their ship.",
+        "poster_url": "https://m.media-amazon.com/images/I/71Ev0SG6vPL.jpg",
+        "lead_actors": [
+            "Sigourney Weaver",
+            "Tom Skerritt",
+            "Veronica Cartwright",
+            "John Hurt"
+        ],
+        "runtime": 117
+    },
+    {
+        "title": "The Lobster",
+        "directors": ["Yorgos Lanthimos"],
+        "genres": ["dark comedy", "sci-fi", "thriller", "romance"],
+        "release_year": 2015,
+        "synopsis": "In a futuristic world, single people are taken to The Hotel to find a lover within a span of 45 days. However, the hotel has a condition if they fail to find a partner.",
+        "poster_url": "https://i.ebayimg.com/images/g/apEAAOSwaYZcvIhT/s-l400.jpg",
+        "lead_actors": ["Colin Farrell", "Rachel Weisz", "Olivia Coleman"],
+        "runtime": 118
+    },
+    {
+        "title": "Winter's Tale",
+        "directors": ["Akiva Goldsman"],
+        "genres": ["adventure", "fantasy", "romance"],
+        "release_year": 2014,
+        "synopsis": "Peter, a thief raised by a supernatural demon, goes to Beverly Penn's mansion in an attempt to rob it. Instead, he falls in love with Beverly, who is about to die of poison.",
+        "poster_url": "https://lh4.googleusercontent.com/proxy/hOUY0IvodxhBu2p5tNIz2t5gsuJMxpfl9ylHyyQbp4xzrokcvuQ0HA8a33IdUdexI4txZm2EeTG63OJTs9Wa5aGNcPa5cPfCFnA7wPNE",
+        "lead_actors": ["Colin Farrell", "Russell Crowe", "Jessica Brown"],
+        "runtime": 118
+    },
+    {
+        "title": "Lucy",
+        "directors": ["Luc Besson"],
+        "genres": ["sci-fi", "action", "thriller"],
+        "release_year": 2014,
+        "synopsis": "When Lucy unknowingly becomes part of a drug trade, sinister individuals insert medications in her body. They then give her unique abilities, which she uses to gain vengeance against her perpetrators.",
+        "poster_url": "https://m.media-amazon.com/images/I/91zXnxbQ1QL.jpg",
+        "lead_actors": ["Scarlett Johansson", "Morgan Freeman"],
+        "runtime": 90
+    },
+    {
+        "title": "Barbie",
+        "directors": ["Greta Gerwig"],
+        "genres": ["sci-fi", "action", "thriller"],
+        "release_year": 2023,
+        "synopsis": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+        "poster_url": "https://m.media-amazon.com/images/I/71hsNVUr02L.jpg",
+        "lead_actors": ["Margot Robbie", "Ryan Gosling", "Will Ferrell"],
+        "runtime": 114
+    },
+    {
+        "title": "About Time",
+        "directors": ["Richard Curtis"],
+        "genres": ["romance", "comedy", "drama"],
+        "release_year": 2013,
+        "synopsis": "Like all the men in his family, Tim Lake possesses the power to travel in time. With the advice of his father, he uses his special ability to pursue his romantic interest, Mary.",
+        "poster_url": "https://i.ebayimg.com/images/g/Hu4AAOSwXldi0IHT/s-l1600.jpg",
+        "lead_actors": [
+            "Rachel McAdams",
+            "Domhnall Gleeson",
+            "Bill Nighy",
+            "Margot Robbie"
+        ],
+        "runtime": 123
+    },
+    {
+        "title": "Spirited Away",
+        "directors": ["Hayao Miyazaki"],
+        "genres": ["animation", "adventure", "family", "fantasy"],
+        "release_year": 2001,
+        "synopsis": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches and spirits, and where humans are changed into beasts.",
+        "poster_url": "https://image.tmdb.org/t/p/original/bs1RMNTISOrgT2hEPyJZGkcVXSS.jpg",
+        "lead_actors": ["Daveigh Chase", "Suzanne Pleshette", "Jason Marsden"],
+        "runtime": 125
+    },
+    {
+        "title": "Inglourious Basterds",
+        "directors": ["Quentin Tarantino"],
+        "genres": ["adventure", "drama", "war"],
+        "release_year": 2009,
+        "synopsis": "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same.",
+        "poster_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p193875_p_v7_aq.jpg",
+        "lead_actors": [
+            "Brad Pitt",
+            "Diane Kruger",
+            "Christoph Waltz",
+            "Michael Fassbender"
+        ],
+        "runtime": 153
+    },
+    {
+        "title": "The Avengers",
+        "directors": ["Joss Whedon"],
+        "genres": ["action", "sci-fi"],
+        "release_year": 2012,
+        "synopsis": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+        "poster_url": "https://www.vintagemovieposters.co.uk/wp-content/uploads/2023/03/IMG_1887-scaled.jpeg",
+        "lead_actors": [
+            "Robert Downey Jr",
+            "Chris Evans",
+            "Scarlett Johansson",
+            "Jeremy Renner",
+            "Mark Ruffalo",
+            "Chris Hemsworth"
+        ],
+        "runtime": 143
+    },
+    {
+        "title": "Lost in Translation",
+        "directors": ["Sofia Coppola"],
+        "genres": ["Drama", "Comedy"],
+        "release_year": 2003,
+        "synopsis": "A faded movie star and a neglected young woman form an unlikely bond after crossing paths in Tokyo.",
+        "poster_url": "https://www.originalposter.co.uk/uploads/686184108257294_mainphoto.jpg",
+        "lead_actors": [
+            "Bill Murray",
+            "Scarlett Johansson",
+            "Giovanni Ribisi",
+            "Anna Faris"
+        ],
+        "runtime": 102
+    },
+    {
+        "title": "Clueless",
+        "directors": ["Amy Heckerling"],
+        "genres": ["Comedy", "Romance"],
+        "release_year": 1995,
+        "synopsis": "Shallow, rich and socially successful Cher is at the top of her Beverly Hills high school's pecking scale. Seeing herself as a matchmaker, Cher first coaxes two teachers into dating each other.",
+        "poster_url": "https://m.media-amazon.com/images/I/71+WpQ5dgQL._AC_UF894,1000_QL80_.jpg",
+        "lead_actors": ["Alicia Silverstone", "Stacey Dash", "Brittany Murphy"],
+        "runtime": 97
+    },
+    {
+        "title": "10 things I hate about you",
+        "directors": ["Gil Junger"],
+        "genres": ["Comedy", "Romance", "Drama"],
+        "release_year": 1999,
+        "synopsis": "A high-school boy, Cameron, cannot date Bianca until her anti-social older sister, Kat, has a boyfriend. So, Cameron pays a mysterious boy, Patrick, to charm Kat.",
+        "poster_url": "https://image.tmdb.org/t/p/original/uvgIWq4xxhIrg7vIHZ9uufNHQ9q.jpg",
+        "lead_actors": ["Heath Ledger", "Julia Stiles", "Joseph Gordon-Levitt"],
+        "runtime": 97
+    },
+    {
+        "title": "Alice in Wonderland",
+        "directors": ["Tim Burton"],
+        "genres": ["adventure", "family", "fantasy"],
+        "release_year": 2010,
+        "synopsis": "Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror.",
+        "poster_url": "images/alice-in-wonderland-img.jpg",
+        "lead_actors": [
+            "Mia Wasikowska",
+            "Johnny Depp",
+            "Helena Bonham Carter",
+            "Anne Hathaway"
+        ],
+        "runtime": 108
+    },
+    {
+        "title": "Twilight",
+        "directors": ["Catherine Hardwicke"],
+        "genres": ["drama", "fantasy", "romance"],
+        "release_year": 2008,
+        "synopsis": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
+        "poster_url": "images/twilight-img.jpg",
+        "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
+        "runtime": 122
+    },
+    {
+        "title": "The Twilight Saga: New Moon",
+        "directors": ["Chris Weitz"],
+        "genres": ["drama", "fantasy", "romance"],
+        "release_year": 2009,
+        "synopsis": "After Bella's birthday party, Edward leaves Bella, and she turns to Jacob for comfort, but danger lurks in the form of a vengeful vampire.",
+        "poster_url": "images/twilight-new-moon.jpg",
+        "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
+        "runtime": 130
+    },
+    {
+        "title": "The Twilight Saga: Eclipse",
+        "directors": ["David Slade"],
+        "genres": ["drama", "fantasy", "romance"],
+        "release_year": 2010,
+        "synopsis": "Bella must choose between her love for Edward and her friendship with Jacob as an army of newborn vampires led by Victoria comes after her.",
+        "poster_url": "images/twilight-eclipse.jpg",
+        "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
+        "runtime": 124
+    },
+    {
+        "title": "The Twilight Saga: Breaking Dawn Part 1",
+        "directors": ["Bill Condon"],
+        "genres": ["drama", "fantasy", "romance"],
+        "release_year": 2011,
+        "synopsis": "Bella and Edward's marriage and honeymoon are cut short when Bella discovers she is pregnant, leading to complications and dangers.",
+        "poster_url": "images/twilight-breaking-dawn-part-1.jpg",
+        "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
+        "runtime": 117
+    },
+    {
+        "title": "The Twilight Saga: Breaking Dawn Part 2",
+        "directors": ["Bill Condon"],
+        "genres": ["drama", "fantasy", "romance"],
+        "release_year": 2012,
+        "synopsis": "After the birth of Renesmee, the Cullens gather other vampire clans to protect the child from a false allegation that puts the family in front of the Volturi.",
+        "poster_url": "images/twilight-breaking-dawn-part-2.jpg",
+        "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
+        "runtime": 115
+    },
+    {
+        "title": "Back to the Future",
+        "directors": ["Robert Zemeckis"],
+        "genres": ["adventure", "comedy", "sci-fi"],
+        "release_year": 1985,
+        "synopsis": "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+        "poster_url": "images/back-to-the-future-img.jpg",
+        "lead_actors": ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson"],
+        "runtime": 116
+    },
+    {
+        "title": "Cars",
+        "directors": ["John Lasseter", "Joe Ranft"],
+        "genres": ["animation", "adventure", "comedy"],
+        "release_year": 2006,
+        "synopsis": "On the way to the biggest race of his life, a hotshot rookie race car gets stranded in a rundown town and learns that winning isn't everything in life.",
+        "poster_url": "images/cars-img.jpg",
+        "lead_actors": ["Owen Wilson", "Larry the Cable Guy", "Bonnie Hunt"],
+        "runtime": 117
+    },
+    {
+        "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+        "directors": ["Gore Verbinski"],
+        "genres": ["action", "adventure", "fantasy"],
+        "release_year": 2003,
+        "synopsis": "Blacksmith Will Turner teams up with eccentric pirate 'Captain' Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
+        "poster_url": "images/pirates-of-the-caribbean-img.jpg",
+        "lead_actors": ["Johnny Depp", "Keira Knightley", "Orlando Bloom"],
+        "runtime": 143
+    },
+    {
+        "title": "Falling for Christmas",
+        "directors": ["Janeen Damian"],
+        "genres": ["comedy", "romance"],
+        "release_year": 2022,
+        "synopsis": "In the days leading up to Christmas, a young and newly engaged heiress experiences a skiing accident. After being diagnosed with amnesia, she finds herself in the care of the handsome lodge owner and his daughter.",
+        "poster_url": "images/falling-for-christmas.jpg",
+        "lead_actors": ["Lindsay Lohan", "Chord Overstreet"],
+        "runtime": 93
+    }
+]
