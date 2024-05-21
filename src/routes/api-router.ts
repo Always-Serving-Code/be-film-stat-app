@@ -1,9 +1,10 @@
-import { getEndpoints } from "../controllers/endpoint-controller"
-import express from "express"
+import { getEndpoints } from "../controllers/endpoint-controller";
+import express from "express";
+import usersRouter from "./usersRouter";
 
-const apiRouter = express.Router()
+const apiRouter = express.Router();
 
+apiRouter.route("/").get(getEndpoints);
+apiRouter.use("/users", usersRouter);
 
-apiRouter.route("/").get(getEndpoints)
-
-export default apiRouter
+export default apiRouter;
