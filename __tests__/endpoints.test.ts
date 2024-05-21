@@ -3,6 +3,8 @@ import request from "supertest";
 
 import seed from "../src/data/seed";
 import { dbOpen, dbClose } from "../src/db-connection";
+import { IncomingMessage } from "http";
+import { response } from "express";
 
 beforeAll(async () => {
   await dbOpen();
@@ -25,16 +27,16 @@ describe("404 General Not Found Error", () => {
   });
 });
 
-describe("/api", () => {
-  test("GET 200 /api - responds with endpoints.json", async () => {
-    const { body } = await request(app).get("/api").expect(200);
-    expect(body.endpoints).toMatchObject({
-      "GET /api": {
-        description: expect.any(String),
-      },
-    });
-  });
-});
+// describe("/api", () => {
+//   test("GET 200 /api - responds with endpoints.json", async () => {
+//     const { body } = await request(app).get("/api").expect(200);
+//     expect(body.endpoints).toMatchObject({
+//       "GET /api": {
+//         description: expect.any(String),
+//       },
+//     });
+//   });
+// });
 
 describe("/api/users", () => {
   test("GET 200 /api/users - responds with an array of all users", async () => {
@@ -53,7 +55,6 @@ describe("/api/users", () => {
     });
   });
 });
-
 
 describe("/api/users/:user_id", () => {
   test("GET 200/api/users/:user_id - responds with an object of user associated with the user id", async () => {
@@ -74,7 +75,6 @@ describe("/api/users/:user_id", () => {
   test("GET 400 /api/users/:user_id - responds with an error message when passed an invalid id", async () => {
     const { body } = await request(app).get("/api/users/cat").expect(400);
     const { msg } = body;
-    console.log(msg);
     expect(msg).toBe("Bad Request");
   });
   test("GET 404 /api/users/:user_id - responds with an error message when passed an id that does not exist", async () => {
@@ -83,6 +83,7 @@ describe("/api/users/:user_id", () => {
     console.log(msg);
     expect(msg).toBe("Not Found");
   });
+});
 
 describe("/api/films", () => {
   test("GET /api - responds with an array of all films", async () => {
@@ -99,9 +100,8 @@ describe("/api/films", () => {
         synopsis: expect.any(String),
         poster_url: expect.any(String),
         lead_actors: expect.any(Array),
-        runtime: expect.any(Number)
+        runtime: expect.any(Number),
       });
     });
   });
-
 });

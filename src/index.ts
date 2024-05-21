@@ -7,18 +7,17 @@ dotenv.config();
 const app: Express = express();
 
 app.use("/api", apiRouter);
-app.all("*", (req: Request, res: Response) => {
+app.all("*", (req: Request, res: Response, next: NextFunction) => {
   res.status(404).send({ msg: "Not Found" });
 });
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  // if (err.status && err.msg) {
-  //   res.status(err.status).send({ msg: err.msg });
-  // }
-  console.log(err);
+  res.status(400).send({ msg: "Bad Request" });
+  next(err);
 });
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).send({ msg: "Internal Server Error" });
 });
+
 export default app;

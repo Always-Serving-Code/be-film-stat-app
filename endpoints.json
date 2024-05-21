@@ -31,7 +31,8 @@
         "num_films_watched": 0,
         "hours_watched": 0
       }
-
+    }
+  },
   "GET /api/films": {
     "description": "Serves an array of all films",
     "exampleResponse": {
