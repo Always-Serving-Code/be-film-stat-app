@@ -6,5 +6,6 @@ const config = {
     transform: {
         "^.+\\.tsx?$": "ts-jest",
     },
+    testEnvironment: 'node'
 };
 exports.default = config;
