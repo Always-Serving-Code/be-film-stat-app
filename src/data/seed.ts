@@ -17,12 +17,11 @@ const connect = async () => {
 };
 
 const seedDB = async () => {
-  await User.deleteMany({});
-  await Film.deleteMany({});
-  await User.insertMany(userData);
-  await Film.insertMany(filmData);
-  console.log("seeded????");
-};
+    await User.deleteMany({})
+    await Film.deleteMany({})
+    await User.insertMany(userData)
+    await Film.insertMany(filmData)
+}
 
 const seed = async () => {
   await connect();

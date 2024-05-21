@@ -14,6 +14,17 @@ afterAll(async () => {
   await dbClose();
 });
 
+describe("404 General Not Found Error", () => {
+  test("404: When path does not exist", () => {
+    return request(app)
+      .get("/api/incorrect-path")
+      .expect(404)
+      .then(({ body }) => {
+        expect(body.msg).toBe("Not Found");
+      });
+  });
+});
+
 describe("/api", () => {
   test("GET /api - responds with endpoints.json", async () => {
     const { body } = await request(app).get("/api").expect(200);
