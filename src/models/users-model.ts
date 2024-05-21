@@ -2,7 +2,7 @@ import mongoose, { Schema, model } from "mongoose";
 import { IFilm } from "./film-model";
 
 interface IUser {
-  _id?: string;
+  _id?: number;
   username: string;
   password: string;
   email: string;
@@ -14,7 +14,7 @@ interface IUser {
 }
 
 const userSchema = new Schema({
-  _id: String,
+  _id: Number,
   username: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true },
