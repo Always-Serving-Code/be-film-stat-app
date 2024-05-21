@@ -23,20 +23,21 @@ describe("/api", () => {
       },
     });
   });
+});
 
 describe("/api/users", () => {
   test("GET /api - responds with an array of all users", async () => {
     const { body } = await request(app).get("/api/users").expect(200);
-    console.log(body);
     const { users } = body;
     expect(users.length).toBe(1);
     users.forEach((user: object) => {
       expect(user).toMatchObject({
-        username: String,
-        password: String,
-        email: String,
-        films: Array,
-        stats: Object,
+        _id: expect.any(String),
+        username: expect.any(String),
+        password: expect.any(String),
+        email: expect.any(String),
+        films: expect.any(Array),
+        stats: expect.any(Object),
       });
     });
   });
