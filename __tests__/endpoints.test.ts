@@ -56,11 +56,11 @@ describe('/api/users', () => {
 
 describe('/api/users/:userId/films', () => {
 	test('GET 200 /api/users/:userId/films', async () => {
-    const {body} = await request(app).get('/api/users/5/films').expect(200)
-    const {films} = body;
-    expect(films.length).toBe(4)
-    films.forEach((film: object) => {
-      expect(film).toMatchObject({
+		const { body } = await request(app).get('/api/users/5/films').expect(200);
+		const { films } = body;
+		expect(films.length).toBe(4);
+		films.forEach((film: object) => {
+			expect(film).toMatchObject({
 				_id: expect.any(Number),
 				title: expect.any(String),
 				directors: expect.any(Array),
@@ -71,10 +71,26 @@ describe('/api/users/:userId/films', () => {
 				lead_actors: expect.any(Array),
 				runtime: expect.any(Number),
 				rating: expect.any(Number),
-        date_watched: expect.any(String)
+				date_watched: expect.any(String),
 			});
-    })
-    });
+		});
+	});
+	test('GET 404 /api/users/:userId/films - user id not found', async () => {
+		const { body } = await request(app)
+			.get('/api/users/6000/films')
+			.expect(404);
+		expect(body.msg).toBe('Not Found');
+	});
+
+	test('GET 404 /api/users/:userId/films - user exists but no associated films', async () => {
+		const { body } = await request(app).get('/api/users/1/films').expect(404);
+		expect(body.msg).toBe('No Films Added Yet!');
+	});
+
+  test('GET 400 /api/users/:userId/films - invalid user id', async () => {
+		const { body } = await request(app).get('/api/users/garbage/films').expect(400);
+		expect(body.msg).toBe('Bad Request');
+	});
 });
 
 describe('/api/films', () => {

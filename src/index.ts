@@ -11,6 +11,10 @@ app.all("*", (req: Request, res: Response) => {
   res.status(404).send({ msg: "Not Found" });
 });
 
+app.use((err: any, req: Request, res: Response, next: NextFunction) =>{
+  res.status(err["status"]).send({msg: err["msg"]})
+})
+
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).send({ msg: "Internal Server Error" });
 });
