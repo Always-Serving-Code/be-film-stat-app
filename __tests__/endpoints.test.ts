@@ -1,6 +1,5 @@
 import app from '../src';
 import request from 'supertest';
-
 import seed from '../src/data/seed';
 import { dbOpen, dbClose } from '../src/db-connection';
 
@@ -54,6 +53,35 @@ describe('/api/users', () => {
 	});
 });
 
+describe("/api/users/:user_id", () => {
+  test("GET 200/api/users/:user_id - responds with an object of user associated with the user id", async () => {
+    const { body } = await request(app).get("/api/users/2").expect(200);
+    const { user } = body;
+    expect(user[0]).toMatchObject({
+      _id: 2,
+      username: "northy",
+      password: "titlo22",
+      email: "norty22@gmail.com",
+      films: [{}],
+      stats: {
+        num_films_watched: 0,
+        hours_watched: 0,
+      },
+    });
+  });
+  test("GET 400 /api/users/:user_id - responds with an error message when passed an invalid id", async () => {
+    const { body } = await request(app).get("/api/users/cat").expect(400);
+    const { msg } = body;
+    expect(msg).toBe("Bad Request");
+  });
+  test("GET 404 /api/users/:user_id - responds with an error message when passed an id that does not exist", async () => {
+    const { body } = await request(app).get("/api/users/200").expect(404);
+    const { msg } = body;
+    console.log(msg);
+    expect(msg).toBe("Not Found");
+  });
+});
+
 describe('/api/users/:userId/films', () => {
 	test('GET 200 /api/users/:user_id/films', async () => {
 		const { body } = await request(app).get('/api/users/5/films').expect(200);
@@ -81,12 +109,10 @@ describe('/api/users/:userId/films', () => {
 			.expect(404);
 		expect(body.msg).toBe('Not Found');
 	});
-
 	test('GET 404 /api/users/:user_id/films - user exists but no associated films', async () => {
 		const { body } = await request(app).get('/api/users/1/films').expect(404);
 		expect(body.msg).toBe('No Films Added Yet!');
 	});
-
 	test('GET 400 /api/users/:user_id/films - invalid user id', async () => {
 		const { body } = await request(app)
 			.get('/api/users/garbage/films')
@@ -114,4 +140,3 @@ describe('/api/films', () => {
 			});
 		});
 	});
-});
