@@ -1,110 +1,106 @@
 [
-	{
-		"_id": 1,
-		"username": "TessTickel69",
-		"password": "FF<3",
-		"email": "tessTickle69@hotmail.com",
-		"films": [{}],
-		"stats": {
-			"num_films_watched": 0,
-			"hours_watched": 0
-		}
-	},
-	{
-		"_id": 2,
-		"username": "northy",
-		"password": "titlo22",
-		"email": "norty22@gmail.com",
-		"films": [{}],
-		"stats": {
-			"num_films_watched": 0,
-			"hours_watched": 0
-		}
-	},
-	{
-		"_id": 3,
-		"username": "ksskol",
-		"password": "pipapop2",
-		"email": "ksskoll@gmail.com",
-		"films": [{}],
-		"stats": {
-			"num_films_watched": 0,
-			"hours_watched": 0
-		}
-	},
-	{
-		"_id": 4,
-		"username": "Eeleeee",
-		"password": "verysafepassword",
-		"email": "ellieh_15@hotmail.co.uk",
-		"films": [{}],
-		"stats": {
-			"num_films_watched": 0,
-			"hours_watched": 0
-		}
-	},
-	{
-		"_id": 5,
-		"username": "PumpkinHead",
-		"password": "watermelon",
-		"email": "pumpkin@gmail.com",
-		"films": [
-			{
-				"_id": 1,
-				"title": "The Lord of The Rings: The Fellowship of the Ring",
-				"directors": ["Peter Jackson"],
-				"genres": ["fantasy", "action", "adventure"],
-				"release_year": 2001,
-				"synopsis": "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-				"poster_url": "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
-				"lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-				"runtime": 178,
-				"rating": 5,
-				"date_watched": "2024-05-21T13:59:41.677Z"
-			},
-			{
-				"_id": 2,
-				"title": "The Lord of The Rings: The Two Towers",
-				"directors": ["Peter Jackson"],
-				"genres": ["fantasy", "action", "adventure"],
-				"release_year": 2002,
-				"synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
-				"poster_url": "https://artofthemovies.co.uk/cdn/shop/products/lord_of_the_rings_the_two_towers_NG06275_B_2_framed1-423634.jpg?v=1611688137",
-				"lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-				"runtime": 235,
-				"rating": 5,
-				"date_watched": "2024-04-21T13:59:41.677Z"
-			},
-			{
-				"_id": 3,
-				"title": "The Lord of The Rings: The Return of the King",
-				"directors": ["Peter Jackson"],
-				"genres": ["fantasy", "action", "adventure"],
-				"release_year": 2003,
-				"synopsis": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
-				"poster_url": "https://static.posters.cz/image/1300/posters/the-lord-of-the-rings-the-return-of-the-king-i104633.jpg",
-				"lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-				"runtime": 201,
-				"rating": 5,
-				"date_watched": "2024-03-21T13:59:41.677Z"
-			},
-			{
-				"_id": 4,
-				"title": "Midsommar",
-				"directors": ["Ari Aster"],
-				"genres": ["drama", "horror", "mystery"],
-				"release_year": 2019,
-				"synopsis": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
-				"poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKk36ZSsCK9NVLN-H10vITUFK33gfpBeYenRQ8wF3sww&s",
-				"lead_actors": ["Florence Pugh", "Jack Reynor"],
-				"runtime": 148,
-				"rating": 4,
-				"date_watched": "2024-02-21T13:59:41.677Z"
-			}
-		],
-		"stats": {
-			"num_films_watched": 4,
-			"hours_watched": 762
-		}
-	}
+  {
+    "_id": 1,
+    "username": "TessTickel69",
+    "password": "FF<3",
+    "email": "tessTickle69@hotmail.com",
+    "films": [],
+    "stats": {
+      "num_films_watched": 0,
+      "hours_watched": 0
+    }
+  },
+  {
+    "_id": 2,
+    "username": "northy",
+    "password": "titlo22",
+    "email": "norty22@gmail.com",
+    "films": [],
+    "stats": {
+      "num_films_watched": 0,
+      "hours_watched": 0
+    }
+  },
+  {
+    "_id": 3,
+    "username": "ksskol",
+    "password": "pipapop2",
+    "email": "ksskoll@gmail.com",
+    "films": [],
+    "stats": {
+      "num_films_watched": 0,
+      "hours_watched": 0
+    }
+  },
+  {
+    "_id": 4,
+    "username": "Eeleeee",
+    "password": "verysafepassword",
+    "email": "ellieh_15@hotmail.co.uk",
+    "films": [],
+    "stats": {
+      "num_films_watched": 0,
+      "hours_watched": 0
+    }
+  },
+  {
+    "_id": 5,
+    "username": "PumpkinHead",
+    "password": "watermelon",
+    "email": "pumpkin@gmail.com",
+    "films": [
+      {
+        "_id": "1",
+        "title": "The Lord of The Rings: The Fellowship of the Ring",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2001,
+        "synopsis": "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "poster_url": "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 178,
+        "rating": 5
+      },
+      {
+        "_id": "2",
+        "title": "The Lord of The Rings: The Two Towers",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2002,
+        "synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+        "poster_url": "https://artofthemovies.co.uk/cdn/shop/products/lord_of_the_rings_the_two_towers_NG06275_B_2_framed1-423634.jpg?v=1611688137",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 235,
+        "rating": 5
+      },
+      {
+        "_id": "3",
+        "title": "The Lord of The Rings: The Return of the King",
+        "directors": "Peter Jackson",
+        "genres": ["fantasy", "action", "adventure"],
+        "release_year": 2003,
+        "synopsis": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+        "poster_url": "https://static.posters.cz/image/1300/posters/the-lord-of-the-rings-the-return-of-the-king-i104633.jpg",
+        "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+        "runtime": 201,
+        "rating": 5
+      },
+      {
+        "_id": "4",
+        "title": "Midsommar",
+        "directors": "Ari Aster",
+        "genres": ["drama", "horror", "mystery"],
+        "release_year": 2019,
+        "synopsis": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
+        "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKk36ZSsCK9NVLN-H10vITUFK33gfpBeYenRQ8wF3sww&s",
+        "lead_actors": ["Florence Pugh", "Jack Reynor"],
+        "runtime": 148,
+        "rating": 4
+      }
+    ],
+    "stats": {
+      "num_films_watched": 4,
+      "hours_watched": 762
+    }
+  }
 ]
