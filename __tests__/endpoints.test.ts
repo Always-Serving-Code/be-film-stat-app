@@ -1,16 +1,13 @@
 import app from "../src";
 import request from "supertest";
 import seed from "../src/data/seed";
-import { dbOpen, dbClose } from "../src/db-connection";
+import { dbOpen } from "../src/db-connection";
 
 beforeAll(async () => {
   await dbOpen();
 });
 beforeEach(async () => {
   await seed();
-});
-afterAll(async () => {
-  await dbClose();
 });
 
 describe("404 General Not Found Error", () => {
@@ -57,7 +54,7 @@ describe("/api/users/:user_id", () => {
   test("GET 200/api/users/:user_id - responds with an object of user associated with the user id", async () => {
     const { body } = await request(app).get("/api/users/2").expect(200);
     const { user } = body;
-    expect(user[0]).toMatchObject({
+    expect(user).toMatchObject({
       _id: 2,
       username: "northy",
       password: "titlo22",
@@ -141,7 +138,6 @@ describe("/api/films", () => {
   });
 });
 
-
 describe("/api/users/:user_id", () => {
   test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
     const film = {
@@ -156,7 +152,7 @@ describe("/api/users/:user_id", () => {
       lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
       runtime: 178,
       rating: 5,
-      date_watched: "2024-05-22T13:59:41.677Z",
+      date_watched: new Date(),
     };
     const { body } = await request(app)
       .patch("/api/users/2")
@@ -190,8 +186,9 @@ describe("/api/users/:user_id", () => {
       lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
       runtime: 178,
       rating: 5,
-      date_watched: "2024-05-22T13:59:41.677Z",
+      date_watched: new Date(),
     };
+
     const { body } = await request(app)
       .patch("/api/users/5")
       .send({ films: film })
@@ -216,6 +213,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 178,
           rating: 5,
+          date_watched: expect.any(String),
         },
         {
           _id: "2",
@@ -230,6 +228,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 235,
           rating: 5,
+          date_watched: expect.any(String),
         },
         {
           _id: "3",
@@ -244,6 +243,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 201,
           rating: 5,
+          date_watched: expect.any(String),
         },
         {
           _id: "4",
@@ -258,6 +258,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Florence Pugh", "Jack Reynor"],
           runtime: 148,
           rating: 4,
+          date_watched: expect.any(String),
         },
         film,
       ],
@@ -266,10 +267,53 @@ describe("/api/users/:user_id", () => {
         hours_watched: 940,
       },
     });
+  });
+  test("PATCH 400 /api/users/:user_id - user id is invalid", async () => {
+    const film = {
+      _id: 1,
+      title: "The Lord of The Rings: The Fellowship of the Ring",
+      directors: "Peter Jackson",
+      genres: ["fantasy", "action", "adventure"],
+      release_year: 2001,
+      synopsis:
+        "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+      lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+      runtime: 178,
+      rating: 5,
+      date_watched: new Date(),
+    };
+    const { body } = await request(app)
+      .patch("/api/users/dog")
+      .expect(400)
+      .send({ films: film });
+    expect(body.msg).toBe("Bad Request");
+  });
+  test("PATCH 404 /api/users/:user_id - user id is not found", async () => {
+    const film = {
+      _id: 1,
+      title: "The Lord of The Rings: The Fellowship of the Ring",
+      directors: "Peter Jackson",
+      genres: ["fantasy", "action", "adventure"],
+      release_year: 2001,
+      synopsis:
+        "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+      lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+      runtime: 178,
+      rating: 5,
+      date_watched: new Date(),
+    };
+    const { body } = await request(app)
+      .patch("/api/users/2000")
+      .expect(404)
+      .send({ films: film });
+    expect(body.msg).toBe("Not found");
+  });
+});
 
 describe("/api/users/:user_id/:film_id", () => {
   test("DELETE /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
     await request(app).delete("/api/users/5/1").expect(204);
-
   });
 });
