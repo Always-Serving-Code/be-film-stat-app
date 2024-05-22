@@ -1,8 +1,29 @@
 {
-  "GET /api": {
-    "description": "Serves a json file containing information on all the available endpoints"
-  },
-
+	"GET /api": {
+		"description": "Serves a json file containing information on all the available endpoints"
+	},
+	"GET /api/films": {
+		"description": "Serves an array of all films",
+		"exampleResponse": {
+			"films": [
+				{
+					"_id": "22",
+					"title": "Twilight",
+					"directors": ["Catherine Hardwicke"],
+					"genres": ["drama", "fantasy", "romance"],
+					"release_year": 2008,
+					"synopsis": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
+					"poster_url": "images/twilight-img.jpg",
+					"lead_actors": [
+						"Kristen Stewart",
+						"Robert Pattinson",
+						"Taylor Lautner"
+					],
+					"runtime": 122
+				}
+			]
+		}
+	},
   "GET /api/users": {
     "description": "Serves an array of all user objects",
     "example response": [
@@ -32,27 +53,29 @@
         "hours_watched": 0
       }
     }
-  },
-  "GET /api/films": {
-    "description": "Serves an array of all films",
-    "exampleResponse": {
-      "films": [
-        {
-          "_id": "22",
-          "title": "Twilight",
-          "directors": ["Catherine Hardwicke"],
-          "genres": ["drama", "fantasy", "romance"],
-          "release_year": 2008,
-          "synopsis": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
-          "poster_url": "images/twilight-img.jpg",
-          "lead_actors": [
-            "Kristen Stewart",
-            "Robert Pattinson",
-            "Taylor Lautner"
-          ],
-          "runtime": 122
-        }
-      ]
-    }
   }
+	"GET /api/users/:user_id/films": {
+		"description": "Serves an array of all films associated with a user",
+		"exampleResponse": {
+			"films": [
+				{
+					"_id": "22",
+					"title": "Twilight",
+					"directors": ["Catherine Hardwicke"],
+					"genres": ["drama", "fantasy", "romance"],
+					"release_year": 2008,
+					"synopsis": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
+					"poster_url": "images/twilight-img.jpg",
+					"lead_actors": [
+						"Kristen Stewart",
+						"Robert Pattinson",
+						"Taylor Lautner"
+					],
+					"runtime": 122,
+					"rating": 5,
+					"date_watched": "2024-04-21T13:59:41.677Z"
+				}
+			]
+		}
+	}
 }

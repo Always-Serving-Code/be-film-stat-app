@@ -1,8 +1,8 @@
 [
 	{
-		"_id": "1",
+		"_id": 1,
 		"title": "The Lord of The Rings: The Fellowship of the Ring",
-		"directors": "Peter Jackson",
+		"directors": ["Peter Jackson"],
 		"genres": ["fantasy", "action", "adventure"],
 		"release_year": 2001,
 		"synopsis": "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
@@ -11,9 +11,9 @@
 		"runtime": 178
 	},
 	{
-		"_id": "2",
+		"_id": 2,
 		"title": "The Lord of The Rings: The Two Towers",
-		"directors": "Peter Jackson",
+		"directors": ["Peter Jackson"],
 		"genres": ["fantasy", "action", "adventure"],
 		"release_year": 2002,
 		"synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
@@ -22,9 +22,9 @@
 		"runtime": 235
 	},
 	{
-		"_id": "3",
+		"_id": 3,
 		"title": "The Lord of The Rings: The Return of the King",
-		"directors": "Peter Jackson",
+		"directors": ["Peter Jackson"],
 		"genres": ["fantasy", "action", "adventure"],
 		"release_year": 2003,
 		"synopsis": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
@@ -33,9 +33,9 @@
 		"runtime": 201
 	},
 	{
-		"_id": "4",
+		"_id": 4,
 		"title": "Midsommar",
-		"directors": "Ari Aster",
+		"directors": ["Ari Aster"],
 		"genres": ["drama", "horror", "mystery"],
 		"release_year": 2019,
 		"synopsis": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
@@ -44,9 +44,9 @@
 		"runtime": 148
 	},
 	{
-		"_id": "5",
+		"_id": 5,
 		"title": "Hereditary",
-		"directors": "Ari Aster",
+		"directors": ["Ari Aster"],
 		"genres": ["drama", "horror", "mystery"],
 		"release_year": 2018,
 		"synopsis": "A grieving family is haunted by tragic and disturbing occurrences.",
@@ -55,7 +55,7 @@
 		"runtime": 127
 	},
 	{
-		"_id": "6",
+		"_id": 6,
 		"title": "Hercules",
 		"directors": ["Ron Clements", "John Musker"],
 		"genres": ["animation", "action", "adventure", "romance"],
@@ -66,7 +66,7 @@
 		"runtime": 93
 	},
 	{
-		"_id": "7",
+		"_id": 7,
 		"title": "Pocahontas",
 		"directors": ["Mike Gabriel", "Eric Goldberg"],
 		"genres": ["animation, action, adventure, romance"],
@@ -77,7 +77,7 @@
 		"runtime": 93
 	},
 	{
-		"_id": "8",
+		"_id": 8,
 		"title": "Irish Wish",
 		"directors": ["Janeen Damian"],
 		"genres": ["romance", "comedy", "fantasy", "drama"],
@@ -88,7 +88,7 @@
 		"runtime": 94
 	},
 	{
-		"_id": "9",
+		"_id": 9,
 		"title": "Alien",
 		"directors": ["Ridley Scott"],
 		"genres": ["horror", "sci-fi", "action", "suspense"],
@@ -104,7 +104,7 @@
 		"runtime": 117
 	},
 	{
-		"_id": "10",
+		"_id": 10,
 		"title": "The Lobster",
 		"directors": ["Yorgos Lanthimos"],
 		"genres": ["dark comedy", "sci-fi", "thriller", "romance"],
@@ -115,7 +115,7 @@
 		"runtime": 118
 	},
 	{
-		"_id": "11",
+		"_id": 11,
 		"title": "Winter's Tale",
 		"directors": ["Akiva Goldsman"],
 		"genres": ["adventure", "fantasy", "romance"],
@@ -126,7 +126,7 @@
 		"runtime": 118
 	},
 	{
-		"_id": "12",
+		"_id": 12,
 		"title": "Lucy",
 		"directors": ["Luc Besson"],
 		"genres": ["sci-fi", "action", "thriller"],
@@ -137,7 +137,7 @@
 		"runtime": 90
 	},
 	{
-		"_id": "13",
+		"_id": 13,
 		"title": "Barbie",
 		"directors": ["Greta Gerwig"],
 		"genres": ["sci-fi", "action", "thriller"],
@@ -148,7 +148,7 @@
 		"runtime": 114
 	},
 	{
-		"_id": "14",
+		"_id": 14,
 		"title": "About Time",
 		"directors": ["Richard Curtis"],
 		"genres": ["romance", "comedy", "drama"],
@@ -164,7 +164,7 @@
 		"runtime": 123
 	},
 	{
-		"_id": "15",
+		"_id": 15,
 		"title": "Spirited Away",
 		"directors": ["Hayao Miyazaki"],
 		"genres": ["animation", "adventure", "family", "fantasy"],
@@ -175,7 +175,7 @@
 		"runtime": 125
 	},
 	{
-		"_id": "16",
+		"_id": 16,
 		"title": "Inglourious Basterds",
 		"directors": ["Quentin Tarantino"],
 		"genres": ["adventure", "drama", "war"],
@@ -191,7 +191,7 @@
 		"runtime": 153
 	},
 	{
-		"_id": "17",
+		"_id": 17,
 		"title": "The Avengers",
 		"directors": ["Joss Whedon"],
 		"genres": ["action", "sci-fi"],
@@ -209,7 +209,7 @@
 		"runtime": 143
 	},
 	{
-		"_id": "18",
+		"_id": 18,
 		"title": "Lost in Translation",
 		"directors": ["Sofia Coppola"],
 		"genres": ["Drama", "Comedy"],
@@ -225,7 +225,7 @@
 		"runtime": 102
 	},
 	{
-		"_id": "19",
+		"_id": 19,
 		"title": "Clueless",
 		"directors": ["Amy Heckerling"],
 		"genres": ["Comedy", "Romance"],
@@ -236,7 +236,7 @@
 		"runtime": 97
 	},
 	{
-		"_id": "20",
+		"_id": 20,
 		"title": "10 things I hate about you",
 		"directors": ["Gil Junger"],
 		"genres": ["Comedy", "Romance", "Drama"],
@@ -247,7 +247,7 @@
 		"runtime": 97
 	},
 	{
-		"_id": "21",
+		"_id": 21,
 		"title": "Alice in Wonderland",
 		"directors": ["Tim Burton"],
 		"genres": ["adventure", "family", "fantasy"],
@@ -263,7 +263,7 @@
 		"runtime": 108
 	},
 	{
-		"_id": "22",
+		"_id": 22,
 		"title": "Twilight",
 		"directors": ["Catherine Hardwicke"],
 		"genres": ["drama", "fantasy", "romance"],
@@ -274,7 +274,7 @@
 		"runtime": 122
 	},
 	{
-		"_id": "23",
+		"_id": 23,
 		"title": "The Twilight Saga: New Moon",
 		"directors": ["Chris Weitz"],
 		"genres": ["drama", "fantasy", "romance"],
@@ -285,7 +285,7 @@
 		"runtime": 130
 	},
 	{
-		"_id": "24",
+		"_id": 24,
 		"title": "The Twilight Saga: Eclipse",
 		"directors": ["David Slade"],
 		"genres": ["drama", "fantasy", "romance"],
@@ -296,7 +296,7 @@
 		"runtime": 124
 	},
 	{
-		"_id": "25",
+		"_id": 25,
 		"title": "The Twilight Saga: Breaking Dawn Part 1",
 		"directors": ["Bill Condon"],
 		"genres": ["drama", "fantasy", "romance"],
@@ -307,7 +307,7 @@
 		"runtime": 117
 	},
 	{
-		"_id": "26",
+		"_id": 26,
 		"title": "The Twilight Saga: Breaking Dawn Part 2",
 		"directors": ["Bill Condon"],
 		"genres": ["drama", "fantasy", "romance"],
@@ -318,7 +318,7 @@
 		"runtime": 115
 	},
 	{
-		"_id": "27",
+		"_id": 27,
 		"title": "Back to the Future",
 		"directors": ["Robert Zemeckis"],
 		"genres": ["adventure", "comedy", "sci-fi"],
@@ -329,7 +329,7 @@
 		"runtime": 116
 	},
 	{
-		"_id": "28",
+		"_id": 28,
 		"title": "Cars",
 		"directors": ["John Lasseter", "Joe Ranft"],
 		"genres": ["animation", "adventure", "comedy"],
@@ -340,7 +340,7 @@
 		"runtime": 117
 	},
 	{
-		"_id": "29",
+		"_id": 29,
 		"title": "Pirates of the Caribbean: The Curse of the Black Pearl",
 		"directors": ["Gore Verbinski"],
 		"genres": ["action", "adventure", "fantasy"],
@@ -351,7 +351,7 @@
 		"runtime": 143
 	},
 	{
-		"_id": "30",
+		"_id": 30,
 		"title": "Falling for Christmas",
 		"directors": ["Janeen Damian"],
 		"genres": ["comedy", "romance"],
