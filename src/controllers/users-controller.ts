@@ -36,9 +36,8 @@ export const getFilmsByUserId = async (
 			}
 			res.status(200).send({ films });
 		}
-	} catch (err: any) {
-		console.log('in catch in controllers', err);
-		next(err);
 		await dbClose();
+	} catch (err: any) {
+		next(err);
 	}
 };
