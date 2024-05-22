@@ -24,36 +24,36 @@
 			]
 		}
 	},
-  "GET /api/users": {
-    "description": "Serves an array of all user objects",
-    "example response": [
-      {
-        "_id": "1",
-        "username": "TessTickel69",
-        "password": "FF<3",
-        "email": "tessTickle69@hotmail.com",
-        "films": [{}],
-        "stats": {
-          "num_films_watched": 0,
-          "hours_watched": 0
-        }
-      }
-    ]
-  },
-  "GET /api/users/:user_id": {
-    "description": "Serves an object of all user information",
-    "example response": {
-      "_id": "1",
-      "username": "TessTickel69",
-      "password": "FF<3",
-      "email": "tessTickle69@hotmail.com",
-      "films": [{}],
-      "stats": {
-        "num_films_watched": 0,
-        "hours_watched": 0
-      }
-    }
-  }
+	"GET /api/users": {
+		"description": "Serves an array of all user objects",
+		"example response": [
+			{
+				"_id": "1",
+				"username": "TessTickel69",
+				"password": "FF<3",
+				"email": "tessTickle69@hotmail.com",
+				"films": [{}],
+				"stats": {
+					"num_films_watched": 0,
+					"hours_watched": 0
+				}
+			}
+		]
+	},
+	"GET /api/users/:user_id": {
+		"description": "Serves an object of all user information",
+		"example response": {
+			"_id": "1",
+			"username": "TessTickel69",
+			"password": "FF<3",
+			"email": "tessTickle69@hotmail.com",
+			"films": [{}],
+			"stats": {
+				"num_films_watched": 0,
+				"hours_watched": 0
+			}
+		}
+	},
 	"GET /api/users/:user_id/films": {
 		"description": "Serves an array of all films associated with a user",
 		"exampleResponse": {

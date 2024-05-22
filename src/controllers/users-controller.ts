@@ -1,38 +1,39 @@
-import { Response, Request, NextFunction } from "express";
-import { User } from "../models/users-model";
-import { dbClose, dbOpen } from "../db-connection";
-import { Error } from "mongoose";
+import { Response, Request, NextFunction } from 'express';
+import { User } from '../models/users-model';
+import { dbClose, dbOpen } from '../db-connection';
+import { Error } from 'mongoose';
 
 export const getUsers = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
+	req: Request,
+	res: Response,
+	next: NextFunction
 ) => {
-  try {
-    await dbOpen();
-    const users = await User.find();
-    res.status(200).send({ users });
-    await dbClose();
-  } catch (next) {}
+	try {
+		await dbOpen();
+		const users = await User.find();
+		res.status(200).send({ users });
+		await dbClose();
+	} catch (next) {}
 };
 
 export const getUserById = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
+	req: Request,
+	res: Response,
+	next: NextFunction
 ) => {
-  try {
-    await dbOpen();
-    const { user_id } = req.params;
-    const user = await User.find({ _id: user_id });
-    if (!user.length) {
-      res.status(404).send({ msg: "Not Found" });
-    }
-    res.status(200).send({ user });
-    await dbClose();
-  } catch (err: any) {
-    next(err);
-  }
+	try {
+		await dbOpen();
+		const { user_id } = req.params;
+		const user = await User.find({ _id: user_id });
+		if (!user.length) {
+			res.status(404).send({ msg: 'Not Found' });
+		}
+		res.status(200).send({ user });
+		await dbClose();
+	} catch (err: any) {
+		next(err);
+	}
+};
 
 export const getFilmsByUserId = async (
 	req: Request,
