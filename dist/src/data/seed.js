@@ -14,26 +14,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const films_schemas_1 = require("../schemas /films-schemas");
+const film_model_1 = require("../models/film-model");
 const film_data_json_1 = __importDefault(require("./film-data.json"));
-const users_schema_1 = require("../schemas /users-schema");
+const users_model_1 = require("../models/users-model");
 const users_data_json_1 = __importDefault(require("./users-data.json"));
 dotenv_1.default.config();
 const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(process.env.ATLAS_URI);
-        console.log('Connected <3');
+        console.log("Connected <3");
     }
     catch (_a) {
-        console.log('nooo seed gone wrong :(');
+        console.log("nooo seed gone wrong :(");
     }
 });
 const seedDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield users_schema_1.User.deleteMany({});
-    yield films_schemas_1.Film.deleteMany({});
-    yield users_schema_1.User.insertMany(users_data_json_1.default);
-    yield films_schemas_1.Film.insertMany(film_data_json_1.default);
-    console.log('seeded????');
+    yield users_model_1.User.deleteMany({});
+    yield film_model_1.Film.deleteMany({});
+    yield users_model_1.User.insertMany(users_data_json_1.default);
+    yield film_model_1.Film.insertMany(film_data_json_1.default);
 });
 const seed = () => __awaiter(void 0, void 0, void 0, function* () {
     yield connect();

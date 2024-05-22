@@ -58,7 +58,7 @@ describe('/api/users/:user_id', () => {
 			username: 'northy',
 			password: 'titlo22',
 			email: 'norty22@gmail.com',
-			films: [{}],
+			films: [],
 			stats: {
 				num_films_watched: 0,
 				hours_watched: 0,
@@ -137,11 +137,7 @@ describe('/api/films', () => {
 	});
 });
 
-//stats are updated
-//404 X 2 - one for each
-//400 x 2 - one for each
-
-describe.only('/api/users/:user_id/:film_id', () => {
+describe('/api/users/:user_id/:film_id', () => {
 	test('DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history', async () => {
 		await request(app).delete('/api/users/5/1').expect(204);
 	});

@@ -50,7 +50,7 @@ export const getFilmsByUserId = async (
 			return next({ status: 404, msg: 'Not Found' });
 		} else {
 			const films: object[] = user[0]['films'];
-			if (!Object.keys(films[0]).length) {
+			if (!films.length) {
 				return next({ status: 404, msg: 'No Films Added Yet!' });
 			}
 			res.status(200).send({ films });
