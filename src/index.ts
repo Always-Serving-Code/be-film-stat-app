@@ -8,18 +8,18 @@ const app: Express = express();
 
 app.use('/api', apiRouter);
 app.all('*', (req: Request, res: Response) => {
-  console.log('in catch invalid path')
+	console.log('in catch invalid path');
 	res.status(404).send({ msg: 'Not Found' });
 });
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 	if (err.name === 'CastError') {
 		res.status(400).send({ msg: 'Bad Request' });
-	} else if ('msg' in err && 'status' in err){
+	} else if ('msg' in err && 'status' in err) {
 		res.status(err['status']).send({ msg: err['msg'] });
 	} else {
-  return next(err)
-  }
+		return next(err);
+	}
 });
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

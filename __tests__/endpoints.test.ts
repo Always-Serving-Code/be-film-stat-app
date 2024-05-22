@@ -55,7 +55,7 @@ describe('/api/users', () => {
 });
 
 describe('/api/users/:userId/films', () => {
-	test('GET 200 /api/users/:userId/films', async () => {
+	test('GET 200 /api/users/:user_id/films', async () => {
 		const { body } = await request(app).get('/api/users/5/films').expect(200);
 		const { films } = body;
 		expect(films.length).toBe(4);
@@ -75,20 +75,22 @@ describe('/api/users/:userId/films', () => {
 			});
 		});
 	});
-	test('GET 404 /api/users/:userId/films - user id not found', async () => {
+	test('GET 404 /api/users/:user_id/films - user id not found', async () => {
 		const { body } = await request(app)
 			.get('/api/users/6000/films')
 			.expect(404);
 		expect(body.msg).toBe('Not Found');
 	});
 
-	test('GET 404 /api/users/:userId/films - user exists but no associated films', async () => {
+	test('GET 404 /api/users/:user_id/films - user exists but no associated films', async () => {
 		const { body } = await request(app).get('/api/users/1/films').expect(404);
 		expect(body.msg).toBe('No Films Added Yet!');
 	});
 
-  test('GET 400 /api/users/:userId/films - invalid user id', async () => {
-		const { body } = await request(app).get('/api/users/garbage/films').expect(400);
+	test('GET 400 /api/users/:user_id/films - invalid user id', async () => {
+		const { body } = await request(app)
+			.get('/api/users/garbage/films')
+			.expect(400);
 		expect(body.msg).toBe('Bad Request');
 	});
 });
