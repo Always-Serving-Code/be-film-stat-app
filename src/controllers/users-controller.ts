@@ -20,18 +20,19 @@ export const getUserById = async (
 	res: Response,
 	next: NextFunction
 ) => {
-	try {
-		await dbOpen();
-		const { user_id } = req.params;
-		const user = await User.find({ _id: user_id });
-		if (!user.length) {
-			res.status(404).send({ msg: 'Not Found' });
-		}
-		res.status(200).send({ user });
-		await dbClose();
-	} catch (err: any) {
-		next(err);
-	}
+
+  try {
+    await dbOpen();
+    const { user_id } = req.params;
+    const user = await User.find({ _id: user_id });
+    if (!user.length) {
+      res.status(404).send({ msg: "Not Found" });
+    }
+    res.status(200).send({ user: user[0] });
+    await dbClose();
+  } catch (err: any) {
+    next(err);
+  }
 };
 
 export const patchUserById = async (
@@ -43,34 +44,37 @@ export const patchUserById = async (
     await dbOpen();
     const { user_id } = req.params;
     const { films } = req.body;
-
     const runtime = films.runtime;
     const user = await User.find({ _id: user_id });
 
-    const arr = [];
-    arr.push(films);
-    let counter = user[0].stats["num_films_watched"];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr) {
-        counter++;
+    if (!user.length) {
+      return next({ status: 404, msg: "Not found" });
+    } else {
+      const arr = [];
+      arr.push(films);
+      let counter = user[0].stats["num_films_watched"];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr) {
+          counter++;
+        }
       }
-    }
 
-    let currentRuntime = user[0].stats["hours_watched"];
-    currentRuntime += runtime;
+      let currentRuntime = user[0].stats["hours_watched"];
+      currentRuntime += runtime;
 
-    const updatedUser = await User.findByIdAndUpdate(
-      user_id,
-      {
-        $push: { films: films },
-        $set: {
-          "stats.hours_watched": currentRuntime,
-          "stats.num_films_watched": counter,
+      const updatedUser = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $push: { films: films },
+          $set: {
+            "stats.hours_watched": currentRuntime,
+            "stats.num_films_watched": counter,
+          },
         },
-      },
-      { new: true }
-    );
-    res.status(200).send({ user: updatedUser });
+        { new: true }
+      );
+      res.status(200).send({ user: updatedUser });
+    }
     await dbClose();
   } catch (err) {
     next(err);
@@ -82,23 +86,23 @@ export const getFilmsByUserId = async (
 	res: Response,
 	next: NextFunction
 ) => {
-	const { user_id } = req.params;
-	try {
-		await dbOpen();
-		const user = await User.find({ _id: user_id });
-		if (!user.length) {
-			return next({ status: 404, msg: 'Not Found' });
-		} else {
-			const films: object[] = user[0]['films'];
-			if (!films.length) {
-				return next({ status: 404, msg: 'No Films Added Yet!' });
-			}
-			res.status(200).send({ films });
-		}
-		await dbClose();
-	} catch (err: any) {
-		next(err);
-	}
+  const { user_id } = req.params;
+  try {
+    await dbOpen();
+    const user = await User.find({ _id: user_id });
+    if (!user.length) {
+      return next({ status: 404, msg: "Not Found" });
+    } else {
+      const films: object[] = user[0]["films"];
+      if (!films.length) {
+        return next({ status: 404, msg: "No Films Added Yet!" });
+      }
+      res.status(200).send({ films });
+    }
+    await dbClose();
+  } catch (err: any) {
+    next(err);
+  }
 };
 
 export const deleteFilmFromUserByIds = async (
