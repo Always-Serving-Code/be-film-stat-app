@@ -1,6 +1,5 @@
 import app from "../src";
 import request from "supertest";
-
 import seed from "../src/data/seed";
 import { dbOpen, dbClose } from "../src/db-connection";
 
@@ -37,7 +36,7 @@ describe("/api", () => {
 });
 
 describe("/api/users", () => {
-  test("GET 200 /api/users - responds with an array of all users", async () => {
+  test("GET /api - responds with an array of all users", async () => {
     const { body } = await request(app).get("/api/users").expect(200);
     const { users } = body;
     expect(users.length).toBe(5);
@@ -82,14 +81,53 @@ describe("/api/users/:user_id", () => {
   });
 });
 
+describe("/api/users/:userId/films", () => {
+  test("GET 200 /api/users/:user_id/films", async () => {
+    const { body } = await request(app).get("/api/users/5/films").expect(200);
+    const { films } = body;
+    expect(films.length).toBe(4);
+    films.forEach((film: object) => {
+      expect(film).toMatchObject({
+        _id: expect.any(Number),
+        title: expect.any(String),
+        directors: expect.any(Array),
+        genres: expect.any(Array),
+        release_year: expect.any(Number),
+        synopsis: expect.any(String),
+        poster_url: expect.any(String),
+        lead_actors: expect.any(Array),
+        runtime: expect.any(Number),
+        rating: expect.any(Number),
+        date_watched: expect.any(String),
+      });
+    });
+  });
+  test("GET 404 /api/users/:user_id/films - user id not found", async () => {
+    const { body } = await request(app)
+      .get("/api/users/6000/films")
+      .expect(404);
+    expect(body.msg).toBe("Not Found");
+  });
+  test("GET 404 /api/users/:user_id/films - user exists but no associated films", async () => {
+    const { body } = await request(app).get("/api/users/1/films").expect(404);
+    expect(body.msg).toBe("No Films Added Yet!");
+  });
+  test("GET 400 /api/users/:user_id/films - invalid user id", async () => {
+    const { body } = await request(app)
+      .get("/api/users/garbage/films")
+      .expect(400);
+    expect(body.msg).toBe("Bad Request");
+  });
+});
+
 describe("/api/films", () => {
-  test("GET /api - responds with an array of all films", async () => {
+  test("GET /api/films - responds with an array of all films", async () => {
     const { body } = await request(app).get("/api/films").expect(200);
     const { films } = body;
     expect(films.length).toBe(30);
     films.forEach((film: object) => {
       expect(film).toMatchObject({
-        _id: expect.any(String),
+        _id: expect.any(Number),
         title: expect.any(String),
         directors: expect.any(Array),
         genres: expect.any(Array),
@@ -102,6 +140,7 @@ describe("/api/films", () => {
     });
   });
 });
+
 
 describe("/api/users/:user_id", () => {
   test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
@@ -227,5 +266,10 @@ describe("/api/users/:user_id", () => {
         hours_watched: 940,
       },
     });
+
+describe("/api/users/:user_id/:film_id", () => {
+  test("DELETE /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
+    await request(app).delete("/api/users/5/1").expect(204);
+
   });
 });
