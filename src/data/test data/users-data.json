@@ -4,44 +4,28 @@
     "username": "TessTickel69",
     "password": "FF<3",
     "email": "tessTickle69@hotmail.com",
-    "films": [],
-    "stats": {
-      "num_films_watched": 0,
-      "hours_watched": 0
-    }
+    "films": []
   },
   {
     "_id": 2,
     "username": "northy",
     "password": "titlo22",
     "email": "norty22@gmail.com",
-    "films": [],
-    "stats": {
-      "num_films_watched": 0,
-      "hours_watched": 0
-    }
+    "films": []
   },
   {
     "_id": 3,
     "username": "ksskol",
     "password": "pipapop2",
     "email": "ksskoll@gmail.com",
-    "films": [],
-    "stats": {
-      "num_films_watched": 0,
-      "hours_watched": 0
-    }
+    "films": []
   },
   {
     "_id": 4,
     "username": "Eeleeee",
     "password": "verysafepassword",
     "email": "ellieh_15@hotmail.co.uk",
-    "films": [],
-    "stats": {
-      "num_films_watched": 0,
-      "hours_watched": 0
-    }
+    "films": []
   },
   {
     "_id": 5,
@@ -101,10 +85,6 @@
         "rating": 4,
         "date_watched": "2024-02-21T13:59:41.677Z"
       }
-    ],
-    "stats": {
-      "num_films_watched": 4,
-      "hours_watched": 762
-    }
+    ]
   }
 ]
