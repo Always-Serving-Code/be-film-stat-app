@@ -253,7 +253,7 @@
         "genres": ["adventure", "family", "fantasy"],
         "release_year": 2010,
         "synopsis": "Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror.",
-        "poster_url": "images/alice-in-wonderland-img.jpg",
+        "poster_url": "https://m.media-amazon.com/images/I/71wWEbTXalL._AC_UF894,1000_QL80_.jpg",
         "lead_actors": [
             "Mia Wasikowska",
             "Johnny Depp",
@@ -269,7 +269,7 @@
         "genres": ["drama", "fantasy", "romance"],
         "release_year": 2008,
         "synopsis": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
-        "poster_url": "images/twilight-img.jpg",
+        "poster_url": "https://m.media-amazon.com/images/I/91CqNOutfYL._AC_UF1000,1000_QL80_.jpg",
         "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
         "runtime": 122
     },
@@ -280,7 +280,7 @@
         "genres": ["drama", "fantasy", "romance"],
         "release_year": 2009,
         "synopsis": "After Bella's birthday party, Edward leaves Bella, and she turns to Jacob for comfort, but danger lurks in the form of a vengeful vampire.",
-        "poster_url": "images/twilight-new-moon.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI3MjE3NDIxNF5BMl5BanBnXkFtZTcwODM3NTY5Mg@@._V1_.jpg",
         "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
         "runtime": 130
     },
@@ -291,7 +291,7 @@
         "genres": ["drama", "fantasy", "romance"],
         "release_year": 2010,
         "synopsis": "Bella must choose between her love for Edward and her friendship with Jacob as an army of newborn vampires led by Victoria comes after her.",
-        "poster_url": "images/twilight-eclipse.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BNDMwNjAzNzYwOF5BMl5BanBnXkFtZTcwMDY5NzcyMw@@._V1_.jpg",
         "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
         "runtime": 124
     },
@@ -302,7 +302,7 @@
         "genres": ["drama", "fantasy", "romance"],
         "release_year": 2011,
         "synopsis": "Bella and Edward's marriage and honeymoon are cut short when Bella discovers she is pregnant, leading to complications and dangers.",
-        "poster_url": "images/twilight-breaking-dawn-part-1.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BODgxNDE0OTAzOF5BMl5BanBnXkFtZTcwNzcwODE2Ng@@._V1_FMjpg_UX1000_.jpg",
         "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
         "runtime": 117
     },
@@ -313,7 +313,7 @@
         "genres": ["drama", "fantasy", "romance"],
         "release_year": 2012,
         "synopsis": "After the birth of Renesmee, the Cullens gather other vampire clans to protect the child from a false allegation that puts the family in front of the Volturi.",
-        "poster_url": "images/twilight-breaking-dawn-part-2.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1OA@@._V1_.jpg",
         "lead_actors": ["Kristen Stewart", "Robert Pattinson", "Taylor Lautner"],
         "runtime": 115
     },
@@ -324,7 +324,7 @@
         "genres": ["adventure", "comedy", "sci-fi"],
         "release_year": 1985,
         "synopsis": "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
-        "poster_url": "images/back-to-the-future-img.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
         "lead_actors": ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson"],
         "runtime": 116
     },
@@ -335,7 +335,7 @@
         "genres": ["animation", "adventure", "comedy"],
         "release_year": 2006,
         "synopsis": "On the way to the biggest race of his life, a hotshot rookie race car gets stranded in a rundown town and learns that winning isn't everything in life.",
-        "poster_url": "images/cars-img.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_FMjpg_UX1000_.jpg",
         "lead_actors": ["Owen Wilson", "Larry the Cable Guy", "Bonnie Hunt"],
         "runtime": 117
     },
@@ -346,7 +346,7 @@
         "genres": ["action", "adventure", "fantasy"],
         "release_year": 2003,
         "synopsis": "Blacksmith Will Turner teams up with eccentric pirate 'Captain' Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
-        "poster_url": "images/pirates-of-the-caribbean-img.jpg",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BNGYyZGM5MGMtYTY2Ni00M2Y1LWIzNjQtYWUzM2VlNGVhMDNhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
         "lead_actors": ["Johnny Depp", "Keira Knightley", "Orlando Bloom"],
         "runtime": 143
     },
@@ -357,7 +357,7 @@
         "genres": ["comedy", "romance"],
         "release_year": 2022,
         "synopsis": "In the days leading up to Christmas, a young and newly engaged heiress experiences a skiing accident. After being diagnosed with amnesia, she finds herself in the care of the handsome lodge owner and his daughter.",
-        "poster_url": "images/falling-for-christmas.jpg",
+        "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4alWq336QnIhg8TRNLq5WR_E4ZTWkBJJhtmS-3MW_xA&s",
         "lead_actors": ["Lindsay Lohan", "Chord Overstreet"],
         "runtime": 93
     }

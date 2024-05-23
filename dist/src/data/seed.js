@@ -22,10 +22,10 @@ dotenv_1.default.config();
 const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(process.env.ATLAS_URI);
-        console.log("Connected <3");
+        console.log("Connected to the database");
     }
     catch (_a) {
-        console.log("nooo seed gone wrong :(");
+        console.log("The database is not connected");
     }
 });
 const seedDB = () => __awaiter(void 0, void 0, void 0, function* () {
