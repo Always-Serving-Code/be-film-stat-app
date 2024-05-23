@@ -1,4 +1,4 @@
-import app from "../src";
+import app from "..";
 import request from "supertest";
 import seed from "../src/data/seed";
 import { dbOpen } from "../src/db-connection";

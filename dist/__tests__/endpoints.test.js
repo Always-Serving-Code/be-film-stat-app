@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const src_1 = __importDefault(require("../src"));
+const __1 = __importDefault(require(".."));
 const supertest_1 = __importDefault(require("supertest"));
 const seed_1 = __importDefault(require("../src/data/seed"));
 const db_connection_1 = require("../src/db-connection");
@@ -24,13 +24,13 @@ beforeEach(() => __awaiter(void 0, void 0, void 0, function* () {
 }));
 describe("404 General Not Found Error", () => {
     test("404: When path does not exist", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/incorrect-path").expect(404);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/incorrect-path").expect(404);
         expect(body.msg).toBe("Not Found");
     }));
 });
 describe("/api", () => {
     test("GET 200 /api - responds with endpoints.json", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api").expect(200);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api").expect(200);
         expect(body.endpoints).toMatchObject({
             "GET /api": {
                 description: expect.any(String),
@@ -40,7 +40,7 @@ describe("/api", () => {
 });
 describe("/api/users", () => {
     test("GET 200 /api/users  - responds with an array of all users", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users").expect(200);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users").expect(200);
         const { users } = body;
         expect(users.length).toBe(5);
         users.forEach((user) => {
@@ -56,7 +56,7 @@ describe("/api/users", () => {
 });
 describe("/api/users/:user_id", () => {
     test("GET 200 /api/users/:user_id - responds with an object of user associated with the user id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users/2").expect(200);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users/2").expect(200);
         const { user } = body;
         expect(user).toMatchObject({
             _id: 2,
@@ -67,19 +67,19 @@ describe("/api/users/:user_id", () => {
         });
     }));
     test("GET 400 /api/users/:user_id - responds with an error message when passed an invalid id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users/cat").expect(400);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users/cat").expect(400);
         const { msg } = body;
         expect(msg).toBe("Bad Request");
     }));
     test("GET 404 /api/users/:user_id - responds with an error message when passed an id that does not exist", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users/200").expect(404);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users/200").expect(404);
         const { msg } = body;
         expect(msg).toBe("Not Found");
     }));
 });
 describe("/api/users/:userId/films", () => {
     test("GET 200 /api/users/:user_id/films - respond with an array of films associated with user id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users/5/films").expect(200);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users/5/films").expect(200);
         const { films } = body;
         expect(films.length).toBe(4);
         films.forEach((film) => {
@@ -99,17 +99,17 @@ describe("/api/users/:userId/films", () => {
         });
     }));
     test("GET 404 /api/users/:user_id/films - user id not found", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .get("/api/users/6000/films")
             .expect(404);
         expect(body.msg).toBe("Not Found");
     }));
     test("GET 404 /api/users/:user_id/films - user exists but no associated films", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/users/1/films").expect(404);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/users/1/films").expect(404);
         expect(body.msg).toBe("No Films Added Yet!");
     }));
     test("GET 400 /api/users/:user_id/films - invalid user id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .get("/api/users/garbage/films")
             .expect(400);
         expect(body.msg).toBe("Bad Request");
@@ -124,7 +124,7 @@ describe("/api/users/:userId/films", () => {
 });
 describe("/api/films", () => {
     test("GET /api/films - responds with an array of all films", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default).get("/api/films").expect(200);
+        const { body } = yield (0, supertest_1.default)(__1.default).get("/api/films").expect(200);
         const { films } = body;
         expect(films.length).toBe(30);
         films.forEach((film) => {
@@ -144,28 +144,28 @@ describe("/api/films", () => {
 });
 describe("/api/users/:user_id/:film_id", () => {
     test("DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(src_1.default).delete("/api/users/5/1").expect(204);
+        yield (0, supertest_1.default)(__1.default).delete("/api/users/5/1").expect(204);
     }));
     test("DELETE 404 /api/users/:user_id/:film_id - non-existent user id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .delete("/api/users/50000/1")
             .expect(404);
         expect(body.msg).toBe("Not Found");
     }));
     test("DELETE 404 /api/users/:user_id/:film_id - non-existent film id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .delete("/api/users/5/50000")
             .expect(404);
         expect(body.msg).toBe("Not Found");
     }));
     test("DELETE 400 /api/users/:user_id/:film_id - invalid user id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .delete("/api/users/garbage/1")
             .expect(400);
         expect(body.msg).toBe("Bad Request");
     }));
     test("DELETE 400 /api/users/:user_id/:film_id - invalid film id", () => __awaiter(void 0, void 0, void 0, function* () {
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .delete("/api/users/5/garbage")
             .expect(400);
         expect(body.msg).toBe("Bad Request");
@@ -186,7 +186,7 @@ describe("/api/users/:user_id", () => {
             rating: 5,
             date_watched: new Date(),
         };
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .patch("/api/users/2")
             .send({ films: film })
             .expect(200);
@@ -226,7 +226,7 @@ describe("/api/users/:user_id", () => {
             runtime: 178,
             rating: 5,
         };
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .patch("/api/users/5")
             .send({ films: film })
             .expect(200);
@@ -318,7 +318,7 @@ describe("/api/users/:user_id", () => {
             runtime: 178,
             rating: 5,
         };
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .patch("/api/users/dog")
             .expect(400)
             .send({ films: film });
@@ -337,7 +337,7 @@ describe("/api/users/:user_id", () => {
             runtime: 178,
             rating: 5,
         };
-        const { body } = yield (0, supertest_1.default)(src_1.default)
+        const { body } = yield (0, supertest_1.default)(__1.default)
             .patch("/api/users/2000")
             .expect(404)
             .send({ films: film });
@@ -346,6 +346,6 @@ describe("/api/users/:user_id", () => {
 });
 describe("/api/users/:user_id/:film_id", () => {
     test("DELETE /api/users/:user_id/:film_id - removes an existing film from the users history", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(src_1.default).delete("/api/users/5/1").expect(204);
+        yield (0, supertest_1.default)(__1.default).delete("/api/users/5/1").expect(204);
     }));
 });
