@@ -6,7 +6,7 @@ import { dbOpen } from "../src/db-connection";
 beforeAll(async () => {
   await dbOpen();
 });
-beforeEach(async () => {
+afterEach(async () => {
   await seed();
 });
 

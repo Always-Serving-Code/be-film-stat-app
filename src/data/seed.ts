@@ -1,20 +1,11 @@
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { Film } from "../models/film-model";
 import filmData from "./film-data.json";
 import { User } from "../models/users-model";
 import userData from "./users-data.json";
+import { dbOpen, dbClose } from "../db-connection";
 
 dotenv.config();
-
-const connect = async () => {
-  try {
-    await mongoose.connect(process.env.ATLAS_URI);
-    console.log("Connected to the database");
-  } catch {
-    console.log("The database is not connected");
-  }
-};
 
 const seedDB = async () => {
   await User.deleteMany({});
@@ -24,9 +15,9 @@ const seedDB = async () => {
 };
 
 const seed = async () => {
-  await connect();
+  await dbOpen()
   await seedDB();
-  await mongoose.connection.close();
+  await dbClose()
 };
 
 export default seed;
