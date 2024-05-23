@@ -7,10 +7,6 @@ interface IUser {
   password: string;
   email: string;
   films: IFilm;
-  stats: {
-    num_films_watched: number;
-    hours_watched: number;
-  };
 }
 
 const userSchema = new Schema({
@@ -19,7 +15,6 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   email: { type: String, required: true },
   films: { type: [Object], required: true },
-  stats: { type: Object, required: true },
 });
 
 const User = mongoose.model("User", userSchema);

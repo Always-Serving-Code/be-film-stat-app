@@ -40,7 +40,6 @@ describe("/api/users", () => {
         password: expect.any(String),
         email: expect.any(String),
         films: expect.any(Array),
-        stats: expect.any(Object),
       });
     });
   });
@@ -56,10 +55,6 @@ describe("/api/users/:user_id", () => {
       password: "titlo22",
       email: "norty22@gmail.com",
       films: [],
-      stats: {
-        num_films_watched: 0,
-        hours_watched: 0,
-      },
     });
   });
   test("GET 400 /api/users/:user_id - responds with an error message when passed an invalid id", async () => {
@@ -138,14 +133,6 @@ describe("/api/users/:user_id/:film_id", () => {
   test("DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
     await request(app).delete("/api/users/5/1").expect(204);
   });
-  test("DELETE 204 /api/users/:user_id/:film_id - stats associated with the user are updated", async () => {
-    await request(app).delete("/api/users/5/1").expect(204);
-    const { body } = await request(app).get("/api/users/5").expect(200);
-    expect(body.user[0].stats).toMatchObject({
-      num_films_watched: 3,
-      hours_watched: 584,
-    });
-  });
   test("DELETE 404 /api/users/:user_id/:film_id - non-existent user id", async () => {
     const { body } = await request(app)
       .delete("/api/users/50000/1")
@@ -176,7 +163,7 @@ describe("/api/users/:user_id", () => {
     const film = {
       _id: 1,
       title: "The Lord of The Rings: The Fellowship of the Ring",
-      directors: "Peter Jackson",
+      directors: ["Peter Jackson"],
       genres: ["fantasy", "action", "adventure"],
       release_year: 2001,
       synopsis:
@@ -192,17 +179,27 @@ describe("/api/users/:user_id", () => {
       .send({ films: film })
       .expect(200);
     const { user } = body;
-
     expect(user).toMatchObject({
       _id: 2,
       username: "northy",
       password: "titlo22",
       email: "norty22@gmail.com",
-      films: [film],
-      stats: {
-        num_films_watched: 1,
-        hours_watched: 178,
-      },
+      films: [
+        {
+          _id: 1,
+          title: "The Lord of The Rings: The Fellowship of the Ring",
+          directors: ["Peter Jackson"],
+          genres: ["fantasy", "action", "adventure"],
+          release_year: 2001,
+          synopsis:
+            "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+          poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+          lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+          runtime: 178,
+          rating: 5,
+          date_watched: expect.any(String),
+        },
+      ],
     });
   });
 
@@ -210,7 +207,7 @@ describe("/api/users/:user_id", () => {
     const film = {
       _id: 1,
       title: "The Lord of The Rings: The Fellowship of the Ring",
-      directors: "Peter Jackson",
+      directors: ["Peter Jackson"],
       genres: ["fantasy", "action", "adventure"],
       release_year: 2001,
       synopsis:
@@ -219,7 +216,6 @@ describe("/api/users/:user_id", () => {
       lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
       runtime: 178,
       rating: 5,
-      date_watched: new Date(),
     };
 
     const { body } = await request(app)
@@ -227,9 +223,6 @@ describe("/api/users/:user_id", () => {
       .send({ films: film })
       .expect(200);
     const { user } = body;
-    console.log(user);
-    console.log(typeof user.films[0].date_watched);
-
     expect(user).toMatchObject({
       _id: 5,
       username: "PumpkinHead",
@@ -248,7 +241,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 178,
           rating: 5,
-          date_watched: expect.any("string"),
+          date_watched: expect.any(String),
         },
         {
           _id: 2,
@@ -263,7 +256,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 235,
           rating: 5,
-          date_watched: expect.any("string"),
+          date_watched: expect.any(String),
         },
         {
           _id: 3,
@@ -278,7 +271,7 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
           runtime: 201,
           rating: 5,
-          date_watched: expect.any("string"),
+          date_watched: expect.any(String),
         },
         {
           _id: 4,
@@ -293,14 +286,23 @@ describe("/api/users/:user_id", () => {
           lead_actors: ["Florence Pugh", "Jack Reynor"],
           runtime: 148,
           rating: 4,
-          date_watched: expect.any("string"),
+          date_watched: expect.any(String),
         },
-        film,
+        {
+          _id: 1,
+          title: "The Lord of The Rings: The Fellowship of the Ring",
+          directors: ["Peter Jackson"],
+          genres: ["fantasy", "action", "adventure"],
+          release_year: 2001,
+          synopsis:
+            "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+          poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+          lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+          runtime: 178,
+          rating: 5,
+          date_watched: expect.any(String),
+        },
       ],
-      stats: {
-        num_films_watched: 5,
-        hours_watched: 940,
-      },
     });
   });
   test("PATCH 400 /api/users/:user_id - user id is invalid", async () => {
@@ -316,7 +318,6 @@ describe("/api/users/:user_id", () => {
       lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
       runtime: 178,
       rating: 5,
-      date_watched: new Date(),
     };
     const { body } = await request(app)
       .patch("/api/users/dog")
@@ -337,13 +338,12 @@ describe("/api/users/:user_id", () => {
       lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
       runtime: 178,
       rating: 5,
-      date_watched: new Date(),
     };
     const { body } = await request(app)
       .patch("/api/users/2000")
       .expect(404)
       .send({ films: film });
-    expect(body.msg).toBe("Not found");
+    expect(body.msg).toBe("Not Found");
   });
 });
 
