@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "npx tsc",
-    "start": "node dist/src/index.js",
-    "dev": "nodemon src/index.ts",
+    "start": "node dist/listen.js",
+    "dev": "nodemon index.ts",
     "seed": "npx tsc && node dist/src/data/seed.js"
   },
   "keywords": [],
