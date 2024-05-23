@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import { Film } from "../models/film-model";
-import filmData from "./film-data.json";
+import filmData from "./test-data/film-data.json";
 import { User } from "../models/users-model";
-import userData from "./users-data.json";
+import userData from "./test-data/users-data.json";
 import { dbOpen, dbClose } from "../db-connection";
 
 dotenv.config();
