@@ -70,7 +70,7 @@ describe("/api/users/:user_id", () => {
 });
 
 describe("/api/users/:userId/films", () => {
-  test("GET 200 /api/users/:user_id/films", async () => {
+  test("GET 200 /api/users/:user_id/films - respond with an array of films associated with user id", async () => {
     const { body } = await request(app).get("/api/users/5/films").expect(200);
     const { films } = body;
     expect(films.length).toBe(4);
@@ -106,6 +106,13 @@ describe("/api/users/:userId/films", () => {
       .expect(400);
     expect(body.msg).toBe("Bad Request");
   });
+  // test("GET 200 /api/users/:user_id/films - responds with a list of films ordered by date_watched in descending order", async () => {
+  //   const { body } = await request(app).get("/api/users/5/films").expect(200);
+  //   const { films } = body;
+  //   films.forEach((film) => {
+  //     expect(film).toMatchObject({});
+  //   });
+  // });
 });
 
 describe("/api/films", () => {

@@ -32,11 +32,7 @@
                 "username": "TessTickel69",
                 "password": "FF<3",
                 "email": "tessTickle69@hotmail.com",
-                "films": [{}],
-                "stats": {
-                    "num_films_watched": 0,
-                    "hours_watched": 0
-                }
+                "films": []
             }
         ]
     },
@@ -47,11 +43,31 @@
             "username": "TessTickel69",
             "password": "FF<3",
             "email": "tessTickle69@hotmail.com",
-            "films": [{}],
-            "stats": {
-                "num_films_watched": 0,
-                "hours_watched": 0
-            }
+            "films": []
+        }
+    },
+    "PATCH /api/users/:user_id": {
+        "description": "Serves an object of all user information with new film added and updated stats",
+        "example response": {
+            "_id": "1",
+            "username": "TessTickel69",
+            "password": "FF<3",
+            "email": "tessTickle69@hotmail.com",
+            "films": [
+                {
+                    "_id": 1,
+                    "title": "The Lord of The Rings: The Fellowship of the Ring",
+                    "directors": "Peter Jackson",
+                    "genres": ["fantasy", "action", "adventure"],
+                    "release_year": 2001,
+                    "synopsis": "A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+                    "poster_url": "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
+                    "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+                    "runtime": 178,
+                    "rating": 5,
+                    "date_watched": "2024-04-21T13:59:41.677Z"
+                }
+            ]
         }
     },
     "GET /api/users/:user_id/films": {
@@ -77,5 +93,8 @@
                 }
             ]
         }
+    },
+    "DELETE /api/users/:user_id:/:film_id": {
+        "description": "Deletes the film with the associated IDs"
     }
 }
