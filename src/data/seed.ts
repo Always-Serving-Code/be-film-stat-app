@@ -10,18 +10,18 @@ dotenv.config();
 const connect = async () => {
   try {
     await mongoose.connect(process.env.ATLAS_URI);
-    console.log("Connected <3");
+    console.log("Connected to the database");
   } catch {
-    console.log("nooo seed gone wrong :(");
+    console.log("The database is not connected");
   }
 };
 
 const seedDB = async () => {
-    await User.deleteMany({})
-    await Film.deleteMany({})
-    await User.insertMany(userData)
-    await Film.insertMany(filmData)
-}
+  await User.deleteMany({});
+  await Film.deleteMany({});
+  await User.insertMany(userData);
+  await Film.insertMany(filmData);
+};
 
 const seed = async () => {
   await connect();

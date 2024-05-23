@@ -32,11 +32,7 @@
         "username": "TessTickel69",
         "password": "FF<3",
         "email": "tessTickle69@hotmail.com",
-        "films": [],
-        "stats": {
-          "num_films_watched": 0,
-          "hours_watched": 0
-        }
+        "films": []
       }
     ]
   },
@@ -47,11 +43,7 @@
       "username": "TessTickel69",
       "password": "FF<3",
       "email": "tessTickle69@hotmail.com",
-      "films": [],
-      "stats": {
-        "num_films_watched": 0,
-        "hours_watched": 0
-      }
+      "films": []
     }
   },
   "PATCH /api/users/:user_id": {
@@ -75,11 +67,7 @@
           "rating": 5,
           "date_watched": "2024-04-21T13:59:41.677Z"
         }
-      ],
-      "stats": {
-        "num_films_watched": 1,
-        "hours_watched": 178
-      }
+      ]
     }
   },
   "GET /api/users/:user_id/films": {
@@ -105,5 +93,8 @@
         }
       ]
     }
+  },
+  "DELETE /api/users/:user_id:/:film_id": {
+    "description": "Deletes the film with the associated IDs"
   }
 }

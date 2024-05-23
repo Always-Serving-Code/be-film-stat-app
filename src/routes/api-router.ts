@@ -1,7 +1,7 @@
 import { getEndpoints } from "../controllers/endpoint-controller";
 import express from "express";
-import usersRouter from "./usersRouter";
-import filmsRouter from "./filmsRouter";
+import usersRouter from "./users-router";
+import filmsRouter from "./films-router";
 
 const apiRouter = express.Router();
 
