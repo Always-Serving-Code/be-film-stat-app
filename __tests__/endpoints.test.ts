@@ -138,6 +138,34 @@ describe("/api/films", () => {
 	});
 });
 
+describe("/api/films/:film_id", () => {
+	test("GET 200 /api/films/:film_id - responds with the film with the associated id", async () => {
+		const { body } = await request(app).get("/api/films/2").expect(200);
+		const { film } = body;
+		expect(film).toMatchObject({
+			_id: 2,
+			title: "The Lord of The Rings: The Two Towers",
+			directors: ["Peter Jackson"],
+			genres: ["fantasy", "action", "adventure"],
+			release_year: 2002,
+			synopsis:
+				"While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+			poster_url:
+				"https://artofthemovies.co.uk/cdn/shop/products/lord_of_the_rings_the_two_towers_NG06275_B_2_framed1-423634.jpg?v=1611688137",
+			lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+			runtime: 235,
+		});
+	});
+	test("GET 404 /api/films/:film_id - responds with an error for non-existent id", async ()=>{
+		const { body } = await request(app).get("/api/films/50000").expect(404);
+		expect(body.msg).toBe('Not Found')
+	})
+	test("GET 400 /api/films/:film_id - responds with an error for invalid id", async () => {
+		const { body } = await request(app).get("/api/films/garbage").expect(400);
+		expect(body.msg).toBe("Bad Request");
+	});
+});
+
 describe("/api/users/:user_id/:film_id", () => {
 	test("DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
 		await request(app).delete("/api/users/5/1").expect(204);
