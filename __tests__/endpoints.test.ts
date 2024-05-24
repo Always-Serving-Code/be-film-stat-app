@@ -156,10 +156,10 @@ describe("/api/films/:film_id", () => {
 			runtime: 235,
 		});
 	});
-	test("GET 404 /api/films/:film_id - responds with an error for non-existent id", async ()=>{
+	test("GET 404 /api/films/:film_id - responds with an error for non-existent id", async () => {
 		const { body } = await request(app).get("/api/films/50000").expect(404);
-		expect(body.msg).toBe('Not Found')
-	})
+		expect(body.msg).toBe("Not Found");
+	});
 	test("GET 400 /api/films/:film_id - responds with an error for invalid id", async () => {
 		const { body } = await request(app).get("/api/films/garbage").expect(400);
 		expect(body.msg).toBe("Bad Request");
