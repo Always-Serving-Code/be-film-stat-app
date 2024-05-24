@@ -10,7 +10,7 @@ interface IUser {
 }
 
 const userSchema = new Schema({
-  _id: Number,
+  _id: { type: Schema.Types.Mixed },
   username: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true },

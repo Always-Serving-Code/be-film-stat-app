@@ -15,9 +15,7 @@ interface IFilm {
 }
 
 const filmSchema = new Schema({
-	_id: { type: Schema.Types.Mixed
-    
-   },
+	_id: { type: Schema.Types.Mixed },
 	title: { type: String, required: true },
 	directors: { type: [String], required: true },
 	genres: { type: [String], required: true },
