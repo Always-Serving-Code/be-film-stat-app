@@ -83,15 +83,31 @@ export const getFilmsByUserId = async (
 	try {
 		await dbOpen();
 		const { user_id } = req.params;
-		const { sort_by, order } = req.query;
-	
+		const { sort_by = "date_watched", order = "desc" } = req.query;
 
-		if (isNaN(+user_id)) { //or query not in valid array
+		const validQueries = ["sort_by", "order"];
+		const validSortValues = [
+			"date_watched",
+			"rating",
+			"release_year",
+			"runtime",
+			"title",
+		];
+		const validOrderValues = ["desc", "asc"];
+
+		const isValidQuery = Object.keys(req.query).every((query) =>
+			validQueries.includes(query)
+		);
+
+		const isValidSort = validSortValues.includes(sort_by.toString());
+		const isValidOrder = validOrderValues.includes(order.toString());
+
+		if (isNaN(+user_id) || !isValidQuery || !isValidSort || !isValidOrder) {
 			return next({ status: 400, msg: "Bad Request" });
 		}
 
-		const userWithFilms = await User.findById(+user_id).select('films')
-		
+		const userWithFilms = await User.findById(+user_id).select("films");
+
 		if (!userWithFilms) {
 			return next({ status: 404, msg: "Not Found" });
 		} else {
@@ -100,8 +116,8 @@ export const getFilmsByUserId = async (
 				return next({ status: 404, msg: "No Films Added Yet!" });
 			}
 
-			const orderedFilms = sortAndOrderObjArr(films, sort_by, order)
-			
+			const orderedFilms = sortAndOrderObjArr(films, sort_by, order);
+
 			res.status(200).send({ films: orderedFilms });
 		}
 		await dbClose();
