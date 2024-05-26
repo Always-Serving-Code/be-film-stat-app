@@ -4,6 +4,7 @@ import { dbOpen } from "../src/db/db-connection";
 import seed from "../src/db/seed";
 import filmData from "../src/data/test-data/film-data.json";
 import userData from "../src/data/test-data/user-data.json";
+import { objectArrayToBeSortedBy } from "./test-utils";
 
 beforeAll(async () => {
 	await dbOpen();
@@ -108,13 +109,64 @@ describe("/api/users/:userId/films", () => {
 			.expect(400);
 		expect(body.msg).toBe("Bad Request");
 	});
-	// test("GET 200 /api/users/:user_id/films - responds with a list of films ordered by date_watched in descending order", async () => {
-	//   const { body } = await request(app).get("/api/users/5/films").expect(200);
-	//   const { films } = body;
-	//   films.forEach((film) => {
-	//     expect(film).toMatchObject({});
-	//   });
-	// });
+});
+
+//responds with films ordered by each query
+//allows sorting of date_watched
+describe.only("GET /api/users/:user_id/films? queries", () => {
+	describe("GET /api/users/:user_id/films?sort_by", () => {
+		test("GET 200 /api/users/:user_id/films - responds with a list of films sorted by date_watched in descending order by default", async () => {
+			const { body } = await request(app).get("/api/users/5/films").expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "date_watched", "desc")).toBe(true);
+		});
+
+		test("GET 200 /api/users/:user_id/films?order_by=rating - responds with a list of films sorted by rating in descending order by default", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?sort_by=rating")
+				.expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "rating", "desc")).toBe(true);
+		});
+		test("GET 200 /api/users/:user_id/films?sort_by=title - responds with a list of films sorted by rating in descending order by default", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?sort_by=title")
+				.expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "title", "desc")).toBe(true);
+		});
+		test("GET 200 /api/users/:user_id/films?sort_by=release_year - responds with a list of films sorted by rating in descending order by default", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?sort_by=release_year")
+				.expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "release_year", "desc")).toBe(true);
+		});
+		test("GET 200 /api/users/:user_id/films?sort_by=runtime - responds with a list of films sorted by rating in descending order by default", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?sort_by=runtime")
+				.expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "runtime", "desc")).toBe(true);
+		});
+	});
+	describe("GET /api/users/:user_id/films?sort_by", () => {
+		test("GET 200 /api/users/:user_id/films?order=asc - orders the results in ascending order", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?order=asc")
+				.expect(200);
+			const { films } = body;
+			expect(objectArrayToBeSortedBy(films, "date_watched", "asc")).toBe(true);
+		});
+	});
+	test("GET 200 /api/users/:user_if/films?sort_by=*&order=* - correctly returns with chained queries", async () =>{
+		const { body } = await request(app)
+			.get("/api/users/5/films?sort_by=rating&order=asc")
+			.expect(200);
+		const { films } = body;
+		expect(objectArrayToBeSortedBy(films, "rating", "asc")).toBe(true);
+	})
+	
 });
 
 describe("/api/films", () => {
@@ -277,7 +329,7 @@ describe("/api/users/:user_id", () => {
 					poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
 					lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
 					runtime: 178,
-					rating: 5,
+					rating: 4,
 					date_watched: expect.any(String),
 				},
 				{
@@ -322,7 +374,7 @@ describe("/api/users/:user_id", () => {
 						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKk36ZSsCK9NVLN-H10vITUFK33gfpBeYenRQ8wF3sww&s",
 					lead_actors: ["Florence Pugh", "Jack Reynor"],
 					runtime: 148,
-					rating: 4,
+					rating: 2,
 					date_watched: expect.any(String),
 				},
 				{

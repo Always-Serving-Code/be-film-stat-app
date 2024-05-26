@@ -43,7 +43,7 @@
         "poster_url": "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
         "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
         "runtime": 178,
-        "rating": 5,
+        "rating": 4,
         "date_watched": "2024-05-21T13:59:41.677Z"
       },
       {
@@ -82,7 +82,7 @@
         "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKk36ZSsCK9NVLN-H10vITUFK33gfpBeYenRQ8wF3sww&s",
         "lead_actors": ["Florence Pugh", "Jack Reynor"],
         "runtime": 148,
-        "rating": 4,
+        "rating": 2,
         "date_watched": "2024-02-21T13:59:41.677Z"
       }
     ]

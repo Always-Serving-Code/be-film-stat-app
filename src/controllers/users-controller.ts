@@ -1,6 +1,7 @@
 import { Response, Request, NextFunction } from "express";
 import { User } from "../models/users-model";
 import { dbClose, dbOpen } from "../db/db-connection";
+import { sortAndOrderObjArr } from "../utils";
 
 export const getUsers = async (
 	req: Request,
@@ -82,19 +83,26 @@ export const getFilmsByUserId = async (
 	try {
 		await dbOpen();
 		const { user_id } = req.params;
+		const { sort_by, order } = req.query;
+	
 
-		if (isNaN(+user_id)) {
+		if (isNaN(+user_id)) { //or query not in valid array
 			return next({ status: 400, msg: "Bad Request" });
 		}
-		const user = await User.findById(+user_id);
-		if (!user) {
+
+		const userWithFilms = await User.findById(+user_id).select('films')
+		
+		if (!userWithFilms) {
 			return next({ status: 404, msg: "Not Found" });
 		} else {
-			const films: object[] = user["films"];
+			const films: object[] = [...userWithFilms["films"]];
 			if (!films.length) {
 				return next({ status: 404, msg: "No Films Added Yet!" });
 			}
-			res.status(200).send({ films });
+
+			const orderedFilms = sortAndOrderObjArr(films, sort_by, order)
+			
+			res.status(200).send({ films: orderedFilms });
 		}
 		await dbClose();
 	} catch (err: any) {

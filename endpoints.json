@@ -72,6 +72,10 @@
   },
   "GET /api/users/:user_id/films": {
     "description": "Serves an array of all films associated with a user",
+    "queries": {
+      "sort_by": [ "date_watched", "rating", "release_year", "title", "runtime"],
+      "order": ["desc (default)", "asc"]
+    },
     "exampleResponse": {
       "films": [
         {
