@@ -13,14 +13,14 @@ afterEach(async () => {
 	await seed(filmData, userData);
 });
 
-describe("404 General Not Found Error", () => {
+describe("General Errors", () => {
 	test("404: When path does not exist", async () => {
 		const { body } = await request(app).get("/api/incorrect-path").expect(404);
 		expect(body.msg).toBe("Not Found");
 	});
 });
 
-describe("/api", () => {
+describe("GET /api", () => {
 	test("GET 200 /api - responds with endpoints.json", async () => {
 		const { body } = await request(app).get("/api").expect(200);
 		expect(body.endpoints).toMatchObject({
@@ -31,7 +31,7 @@ describe("/api", () => {
 	});
 });
 
-describe("/api/users", () => {
+describe("GET /api/users", () => {
 	test("GET 200 /api/users  - responds with an array of all users", async () => {
 		const { body } = await request(app).get("/api/users").expect(200);
 		const { users } = body;
@@ -48,7 +48,7 @@ describe("/api/users", () => {
 	});
 });
 
-describe("/api/users/:user_id", () => {
+describe("GET /api/users/:user_id", () => {
 	test("GET 200 /api/users/:user_id - responds with an object of user associated with the user id", async () => {
 		const { body } = await request(app).get("/api/users/2").expect(200);
 		const { user } = body;
@@ -72,7 +72,7 @@ describe("/api/users/:user_id", () => {
 	});
 });
 
-describe("/api/users/:userId/films", () => {
+describe("GET /api/users/:userId/films", () => {
 	test("GET 200 /api/users/:user_id/films - respond with an array of films associated with user id", async () => {
 		const { body } = await request(app).get("/api/users/5/films").expect(200);
 		const { films } = body;
@@ -111,9 +111,7 @@ describe("/api/users/:userId/films", () => {
 	});
 });
 
-//responds with films ordered by each query
-//allows sorting of date_watched
-describe.only("GET /api/users/:user_id/films? queries", () => {
+describe("GET /api/users/:user_id/films? queries", () => {
 	describe("GET /api/users/:user_id/films?sort_by", () => {
 		test("GET 200 /api/users/:user_id/films - responds with a list of films sorted by date_watched in descending order by default", async () => {
 			const { body } = await request(app).get("/api/users/5/films").expect(200);
@@ -121,7 +119,7 @@ describe.only("GET /api/users/:user_id/films? queries", () => {
 			expect(objectArrayToBeSortedBy(films, "date_watched", "desc")).toBe(true);
 		});
 
-		test("GET 200 /api/users/:user_id/films?order_by=rating - responds with a list of films sorted by rating in descending order by default", async () => {
+		test("GET 200 /api/users/:user_id/films?sort_by=rating - responds with a list of films sorted by rating in descending order by default", async () => {
 			const { body } = await request(app)
 				.get("/api/users/5/films?sort_by=rating")
 				.expect(200);
@@ -149,8 +147,15 @@ describe.only("GET /api/users/:user_id/films? queries", () => {
 			const { films } = body;
 			expect(objectArrayToBeSortedBy(films, "runtime", "desc")).toBe(true);
 		});
+		test("GET 400 /api/users/:user_id/films?sort_by=garbage - responds with a 400 when given an invalid query param", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?sort_by=garbage")
+				.expect(400);
+			expect(body.msg).toBe("Bad Request");
+		});
 	});
-	describe("GET /api/users/:user_id/films?sort_by", () => {
+
+	describe("GET /api/users/:user_id/films?order", () => {
 		test("GET 200 /api/users/:user_id/films?order=asc - orders the results in ascending order", async () => {
 			const { body } = await request(app)
 				.get("/api/users/5/films?order=asc")
@@ -158,19 +163,30 @@ describe.only("GET /api/users/:user_id/films? queries", () => {
 			const { films } = body;
 			expect(objectArrayToBeSortedBy(films, "date_watched", "asc")).toBe(true);
 		});
+		test("GET 400 /api/users.:user_id/films?order=garbage - responds with a 400 error if invalid order value given", async () => {
+			const { body } = await request(app)
+				.get("/api/users/5/films?garbage=garbage")
+				.expect(400);
+			expect(body.msg).toBe("Bad Request");
+		});
 	});
-	test("GET 200 /api/users/:user_if/films?sort_by=*&order=* - correctly returns with chained queries", async () =>{
+	test("GET 200 /api/users/:user_if/films?sort_by=*&order=* - correctly returns with chained queries", async () => {
 		const { body } = await request(app)
 			.get("/api/users/5/films?sort_by=rating&order=asc")
 			.expect(200);
 		const { films } = body;
 		expect(objectArrayToBeSortedBy(films, "rating", "asc")).toBe(true);
-	})
-	
+	});
+	test("GET 400 /api/users/:user_if/films?garbage=garbage - responds with a 400 error if invalid query", async () => {
+		const { body } = await request(app)
+			.get("/api/users/5/films?garbage=garbage")
+			.expect(400);
+		expect(body.msg).toBe("Bad Request");
+	});
 });
 
-describe("/api/films", () => {
-	test("GET /api/films - responds with an array of all films", async () => {
+describe("GET /api/films", () => {
+	test("GET 200 /api/films - responds with an array of all films", async () => {
 		const { body } = await request(app).get("/api/films").expect(200);
 		const { films } = body;
 		expect(films.length).toBe(30);
@@ -190,7 +206,7 @@ describe("/api/films", () => {
 	});
 });
 
-describe("/api/films/:film_id", () => {
+describe("GET /api/films/:film_id", () => {
 	test("GET 200 /api/films/:film_id - responds with the film with the associated id", async () => {
 		const { body } = await request(app).get("/api/films/2").expect(200);
 		const { film } = body;
@@ -218,7 +234,7 @@ describe("/api/films/:film_id", () => {
 	});
 });
 
-describe("/api/users/:user_id/:film_id", () => {
+describe("DELETE /api/users/:user_id/:film_id", () => {
 	test("DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
 		await request(app).delete("/api/users/5/1").expect(204);
 	});
@@ -247,7 +263,8 @@ describe("/api/users/:user_id/:film_id", () => {
 		expect(body.msg).toBe("Bad Request");
 	});
 });
-describe("/api/users/:user_id", () => {
+
+describe("PATCH /api/users/:user_id", () => {
 	test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
 		const film = {
 			_id: 1,
@@ -433,11 +450,5 @@ describe("/api/users/:user_id", () => {
 			.expect(404)
 			.send({ films: film });
 		expect(body.msg).toBe("Not Found");
-	});
-});
-
-describe("/api/users/:user_id/:film_id", () => {
-	test("DELETE /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
-		await request(app).delete("/api/users/5/1").expect(204);
 	});
 });
