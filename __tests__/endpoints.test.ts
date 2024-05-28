@@ -264,25 +264,16 @@ describe("DELETE /api/users/:user_id/:film_id", () => {
 	});
 });
 
-describe("PATCH /api/users/:user_id", () => {
+describe.only("PATCH /api/users/:user_id", () => {
 	test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
-		const film = {
-			_id: 1,
-			title: "The Lord of The Rings: The Fellowship of the Ring",
-			directors: ["Peter Jackson"],
-			genres: ["fantasy", "action", "adventure"],
-			release_year: 2001,
-			synopsis:
-				"A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-			poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
-			lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-			runtime: 178,
+		const patch = {
+			film_id: 1,
+			date_watched: new Date("07-24-2023"),
 			rating: 5,
-			date_watched: new Date(),
 		};
 		const { body } = await request(app)
 			.patch("/api/users/2")
-			.send({ films: film })
+			.send(patch)
 			.expect(200);
 		const { user } = body;
 		expect(user).toMatchObject({
@@ -310,23 +301,15 @@ describe("PATCH /api/users/:user_id", () => {
 	});
 
 	test("PATCH 200 /api/users/:user_id - responds with an object with an updated user with number of films not 0 after adding a film", async () => {
-		const film = {
-			_id: 1,
-			title: "The Lord of The Rings: The Fellowship of the Ring",
-			directors: ["Peter Jackson"],
-			genres: ["fantasy", "action", "adventure"],
-			release_year: 2001,
-			synopsis:
-				"A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-			poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
-			lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-			runtime: 178,
+		const patch = {
+			film_id: 1,
+			date_watched: new Date("07-24-2023"),
 			rating: 5,
 		};
 
 		const { body } = await request(app)
 			.patch("/api/users/5")
-			.send({ films: film })
+			.send(patch)
 			.expect(200);
 		const { user } = body;
 		expect(user).toMatchObject({
@@ -412,43 +395,27 @@ describe("PATCH /api/users/:user_id", () => {
 		});
 	});
 	test("PATCH 400 /api/users/:user_id - user id is invalid", async () => {
-		const film = {
-			_id: 1,
-			title: "The Lord of The Rings: The Fellowship of the Ring",
-			directors: "Peter Jackson",
-			genres: ["fantasy", "action", "adventure"],
-			release_year: 2001,
-			synopsis:
-				"A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-			poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
-			lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-			runtime: 178,
+		const patch = {
+			film_id: 1,
+			date_watched: new Date("07-24-2023"),
 			rating: 5,
 		};
 		const { body } = await request(app)
 			.patch("/api/users/dog")
 			.expect(400)
-			.send({ films: film });
+			.send(patch);
 		expect(body.msg).toBe("Bad Request");
 	});
 	test("PATCH 404 /api/users/:user_id - user id is not found", async () => {
-		const film = {
-			_id: 1,
-			title: "The Lord of The Rings: The Fellowship of the Ring",
-			directors: "Peter Jackson",
-			genres: ["fantasy", "action", "adventure"],
-			release_year: 2001,
-			synopsis:
-				"A Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
-			poster_url: "https://m.media-amazon.com/images/I/81abn+94cAL.jpg",
-			lead_actors: ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-			runtime: 178,
+		const patch = {
+			film_id: 1,
+			date_watched: new Date("07-24-2023"),
 			rating: 5,
 		};
 		const { body } = await request(app)
 			.patch("/api/users/2000")
 			.expect(404)
-			.send({ films: film });
+			.send(patch);
 		expect(body.msg).toBe("Not Found");
 	});
 });
