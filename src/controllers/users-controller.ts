@@ -2,6 +2,7 @@ import { Response, Request, NextFunction } from "express";
 import { User } from "../models/users-model";
 import { dbClose, dbOpen } from "../db/db-connection";
 import { sortAndOrderObjArr } from "../utils";
+import { Film } from "../models/film-model";
 
 export const getUsers = async (
 	req: Request,
@@ -50,27 +51,46 @@ export const patchUserById = async (
 	try {
 		await dbOpen();
 		const { user_id } = req.params;
-		const { films } = req.body;
-
-		if (isNaN(+user_id)) {
+		const { film_id, date_watched, rating } = req.body;
+		
+		if (isNaN(+user_id) || typeof film_id !== 'number') {
 			return next({ status: 400, msg: "Bad Request" });
 		}
+		console.log(user_id)
 
-		const user = await User.findById(+user_id);
-		if (!user) {
+		const filmToAdd: any  = await Film.findById(film_id);
+
+		if (!filmToAdd) {
 			return next({ status: 404, msg: "Not Found" });
-		} else {
-			const updatedFilms = { ...films, date_watched: new Date() };
-
-			const updatedUser = await User.findByIdAndUpdate(
-				+user_id,
-				{ $push: { films: updatedFilms } },
-				{ new: true }
-			);
-			res.status(200).send({ user: updatedUser });
 		}
+
+		const newFilm = { ...filmToAdd._doc, date_watched: date_watched, rating };
+
+		const updatedUser = await User.findByIdAndUpdate(
+			+user_id,
+			{ $push: { films: newFilm } },
+			{ new: true }
+		) || undefined
+		console.log(updatedUser, 'updated user')
+		if (!updatedUser) {
+			return next({ status: 404, msg: "Not Found" });
+		}
+
+		// const user = await User.findById(+user_id);
+		// if (!user) {
+		// 	return next({ status: 404, msg: "Not Found" });
+		// } else {
+		// const updatedFilms = { ...films, date_watched: new Date() };
+
+		// const updatedUser = await User.findByIdAndUpdate(
+		// 	+user_id,
+		// 	{ $push: { films: updatedFilms } },
+		// 	{ new: true }
+		// );
+		res.status(200).send({ user: updatedUser });
 		await dbClose();
 	} catch (err: any) {
+		console.log(err)
 		next(err);
 	}
 };
