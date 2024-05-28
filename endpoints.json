@@ -71,7 +71,7 @@
     "description": "Serves an object of all user information with new film added and updated stats",
     "example body": {
 			"film_id": 1,
-			"date_watched": "new Date("07-24-2023")",
+			"date_watched": "new Date('07-24-2023')",
 			"rating": 5
 		},
     "example response": {
