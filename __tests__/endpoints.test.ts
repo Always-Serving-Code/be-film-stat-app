@@ -234,7 +234,7 @@ describe("GET /api/films/:film_id", () => {
 	});
 });
 
-describe("DELETE /api/users/:user_id/:film_id", () => {
+describe.only("DELETE /api/users/:user_id/:film_id", () => {
 	test("DELETE 204 /api/users/:user_id/:film_id - removes an existing film from the users history", async () => {
 		await request(app).delete("/api/users/5/1").expect(204);
 	});
@@ -264,7 +264,7 @@ describe("DELETE /api/users/:user_id/:film_id", () => {
 	});
 });
 
-describe.only("PATCH /api/users/:user_id", () => {
+describe("PATCH /api/users/:user_id", () => {
 	test("PATCH 200 /api/users/:user_id - responds with an object with an updated user after adding a film", async () => {
 		const patch = {
 			film_id: 1,

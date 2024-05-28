@@ -52,13 +52,12 @@ export const patchUserById = async (
 		await dbOpen();
 		const { user_id } = req.params;
 		const { film_id, date_watched, rating } = req.body;
-		
-		if (isNaN(+user_id) || typeof film_id !== 'number') {
+
+		if (isNaN(+user_id) || typeof film_id !== "number") {
 			return next({ status: 400, msg: "Bad Request" });
 		}
-		console.log(user_id)
 
-		const filmToAdd: any  = await Film.findById(film_id);
+		const filmToAdd: any = await Film.findById(film_id);
 
 		if (!filmToAdd) {
 			return next({ status: 404, msg: "Not Found" });
@@ -66,31 +65,20 @@ export const patchUserById = async (
 
 		const newFilm = { ...filmToAdd._doc, date_watched: date_watched, rating };
 
-		const updatedUser = await User.findByIdAndUpdate(
-			+user_id,
-			{ $push: { films: newFilm } },
-			{ new: true }
-		) || undefined
-		console.log(updatedUser, 'updated user')
+		const updatedUser =
+			(await User.findByIdAndUpdate(
+				+user_id,
+				{ $push: { films: newFilm } },
+				{ new: true }
+			)) || undefined;
 		if (!updatedUser) {
 			return next({ status: 404, msg: "Not Found" });
 		}
 
-		// const user = await User.findById(+user_id);
-		// if (!user) {
-		// 	return next({ status: 404, msg: "Not Found" });
-		// } else {
-		// const updatedFilms = { ...films, date_watched: new Date() };
-
-		// const updatedUser = await User.findByIdAndUpdate(
-		// 	+user_id,
-		// 	{ $push: { films: updatedFilms } },
-		// 	{ new: true }
-		// );
 		res.status(200).send({ user: updatedUser });
 		await dbClose();
 	} catch (err: any) {
-		console.log(err)
+		console.log(err);
 		next(err);
 	}
 };
@@ -163,7 +151,7 @@ export const deleteFilmFromUserByIds = async (
 		if (!user) {
 			return next({ status: 404, msg: "Not Found" });
 		}
-		const films: object[] = user["films"];
+		const films: object[] = user["films"]
 		const filmInitialLength: number = films.length;
 
 		while (films.length === filmInitialLength) {
