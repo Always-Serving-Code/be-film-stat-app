@@ -52,13 +52,12 @@ export const patchUserById = async (
 		await dbOpen();
 		const { user_id } = req.params;
 		const { film_id, date_watched, rating } = req.body;
-		
-		if (isNaN(+user_id) || typeof film_id !== 'number') {
+
+		if (isNaN(+user_id) || typeof film_id !== "number") {
 			return next({ status: 400, msg: "Bad Request" });
 		}
-		console.log(user_id)
 
-		const filmToAdd: any  = await Film.findById(film_id);
+		const filmToAdd: any = await Film.findById(film_id);
 
 		if (!filmToAdd) {
 			return next({ status: 404, msg: "Not Found" });
@@ -70,8 +69,8 @@ export const patchUserById = async (
 			+user_id,
 			{ $push: { films: newFilm } },
 			{ new: true }
-		) || undefined
-		console.log(updatedUser, 'updated user')
+		);
+
 		if (!updatedUser) {
 			return next({ status: 404, msg: "Not Found" });
 		}
@@ -90,7 +89,7 @@ export const patchUserById = async (
 		res.status(200).send({ user: updatedUser });
 		await dbClose();
 	} catch (err: any) {
-		console.log(err)
+		console.log(err);
 		next(err);
 	}
 };
@@ -159,26 +158,17 @@ export const deleteFilmFromUserByIds = async (
 
 	try {
 		await dbOpen();
-		const user = await User.findById(+user_id);
-		if (!user) {
+
+		const result = await User.updateOne(
+			{ _id: +user_id },
+			{ $pull: { films: { _id: +film_id } } }
+		);
+
+		if (!result.modifiedCount) {
 			return next({ status: 404, msg: "Not Found" });
 		}
-		const films: object[] = user["films"];
-		const filmInitialLength: number = films.length;
 
-		while (films.length === filmInitialLength) {
-			films.forEach((film: any, index: number) => {
-				if (film["_id"] === +film_id) {
-					films.splice(index, 1);
-				}
-			});
-			if (films.length === filmInitialLength) {
-				return next({ status: 404, msg: "Not Found" });
-			}
-		}
-		await User.updateOne({ _id: user_id }, { $set: { films: films } });
 		res.status(204).send();
-
 		await dbClose();
 	} catch (err: any) {
 		next(err);
