@@ -72,7 +72,7 @@
 		"genres": ["animation, action, adventure, romance"],
 		"release_year": 1995,
 		"synopsis": "An English soldier and the daughter of an Algonquin chief share a romance when English colonists invade seventeenth century Virginia.",
-		"poster_url": "https://ictnews.org/archive/disney-exec-sexy-historical-inaccuracies-harms-disneys-pocahontas",
+		"poster_url": "https://m.media-amazon.com/images/M/MV5BMzc4YzhiN2ItY2Y4NC00YTA0LWEyMjEtNzllNTcxZDdjODhiXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_FMjpg_UX1000_.jpg",
 		"lead_actors": ["Mel Gibson", "Christian Bale", "Irene Bedard"],
 		"runtime": 93
 	},
@@ -360,5 +360,115 @@
 		"poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4alWq336QnIhg8TRNLq5WR_E4ZTWkBJJhtmS-3MW_xA&s",
 		"lead_actors": ["Lindsay Lohan", "Chord Overstreet"],
 		"runtime": 93
-	}
+	},
+  {
+    "title": "Do Revenge",
+    "directors": ["Jennifer Kaytin Robinson"],
+    "genres": ["comedy", "drama"],
+    "release_year": 2022,
+    "synopsis": "After a clandestine run-in, Drea (Alpha, fallen it girl) and Eleanor (beta, new alt girl) team up to go after each other's tormentors.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYTVjZDE3NWItN2Q4NS00YjYyLTkwYTUtODU3NDUzNTU2NDYxXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_.jpg",
+    "lead_actors": ["Camila Mendes", "Maya Hawke"],
+    "runtime": 118
+  },
+  {
+    "title": "Spider-Man",
+    "directors": ["Sam Raimi"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2002,
+    "synopsis": "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.",
+    "poster_url": "https://static.wikia.nocookie.net/ultimatepopculture/images/f/f3/Spider-Man2002Poster.jpg/revision/latest?cb=20190325154328",
+    "lead_actors": ["Tobey Maguire", "Kirsten Dunst", "Willem Dafoe"],
+    "runtime": 121
+  },
+  {
+    "title": "Spider-Man 2",
+    "directors": ["Sam Raimi"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2004,
+    "synopsis": "Peter Parker is beset with troubles in his failing personal life as he battles a brilliant scientist named Doctor Otto Octavius.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMzY2ODk4NmUtOTVmNi00ZTdkLTlmOWYtMmE2OWVhNTU2OTVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+    "lead_actors": ["Tobey Maguire", "Kirsten Dunst", "Alfred Molina"],
+    "runtime": 127
+  },
+  {
+    "title": "Spider-Man 3",
+    "directors": ["Sam Raimi"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2007,
+    "synopsis": "A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
+    "lead_actors": ["Tobey Maguire", "Kirsten Dunst", "Topher Grace"],
+    "runtime": 139
+  },
+  {
+    "title": "The Amazing Spider-Man",
+    "directors": ["Marc Webb"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2012,
+    "synopsis": "After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to solve the mystery of his parent's mysterious death.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMjMyOTM4MDMxNV5BMl5BanBnXkFtZTcwNjIyNzExOA@@._V1_.jpg",
+    "lead_actors": ["Andrew Garfield", "Emma Stone", "Rhys Ifans"],
+    "runtime": 136
+  },
+  {
+    "title": "The Amazing Spider-Man 2",
+    "directors": ["Marc Webb"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2014,
+    "synopsis": "When New York is put under siege by Oscorp, it is up to Spider-Man to save the city he swore to protect as well as his loved ones.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BOTA5NDYxNTg0OV5BMl5BanBnXkFtZTgwODE5NzU1MTE@._V1_.jpg",
+    "lead_actors": ["Andrew Garfield", "Emma Stone", "Jamie Foxx"],
+    "runtime": 142
+  },
+  {
+    "title": "Spider-Man: Homecoming",
+    "directors": ["Jon Watts"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2017,
+    "synopsis": "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BODY2MTAzOTQ4M15BMl5BanBnXkFtZTgwNzg5MTE0MjI@._V1_FMjpg_UX1000_.jpg",
+    "lead_actors": ["Tom Holland", "Michael Keaton", "Robert Downey Jr."],
+    "runtime": 133
+  },
+  {
+    "title": "Spider-Man: Far From Home",
+    "directors": ["Jon Watts"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2019,
+    "synopsis": "Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BODA5MTY0OWUtNjdlOC00NDI5LWE3NjYtNDM4MDI2MzE4OWUxXkEyXkFqcGdeQXVyOTAzODkzMjI@._V1_.jpg",
+    "lead_actors": ["Tom Holland", "Samuel L. Jackson", "Jake Gyllenhaal"],
+    "runtime": 129
+  },
+  {
+    "title": "Spider-Man: No Way Home",
+    "directors": ["Jon Watts"],
+    "genres": ["action", "adventure", "sci-fi"],
+    "release_year": 2021,
+    "synopsis": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_FMjpg_UX1000_.jpg",
+    "lead_actors": ["Tom Holland", "Zendaya", "Benedict Cumberbatch"],
+    "runtime": 148
+  },
+  {
+    "title": "Call Me by Your Name",
+    "directors": ["Luca Guadagnino"],
+    "genres": ["drama", "romance"],
+    "release_year": 2017,
+    "synopsis": "In 1980s Italy, a romance blossoms between a seventeen-year-old student and the older man hired as his father's research assistant.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNDk3NTEwNjc0MV5BMl5BanBnXkFtZTgwNzYxNTMwMzI@._V1_FMjpg_UX1000_.jpg",
+    "lead_actors": ["Timothee Chalamet", "Armie Hammer", "Michael Stuhlbarg"],
+    "runtime": 132
+  },
+  {
+    "title": "Parasite",
+    "directors": ["Bong Joon-ho"],
+    "genres": ["comedy", "drama", "thriller"],
+    "release_year": 2019,
+    "synopsis": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
+    "lead_actors": ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong"],
+    "runtime": 132
+  }  
 ]
