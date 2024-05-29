@@ -65,27 +65,17 @@ export const patchUserById = async (
 
 		const newFilm = { ...filmToAdd._doc, date_watched: date_watched, rating };
 
-		const updatedUser = await User.findByIdAndUpdate(
-			+user_id,
-			{ $push: { films: newFilm } },
-			{ new: true }
-		);
+		const updatedUser =
+			(await User.findByIdAndUpdate(
+				+user_id,
+				{ $push: { films: newFilm } },
+				{ new: true }
+			)) || undefined;
 
 		if (!updatedUser) {
 			return next({ status: 404, msg: "Not Found" });
 		}
 
-		// const user = await User.findById(+user_id);
-		// if (!user) {
-		// 	return next({ status: 404, msg: "Not Found" });
-		// } else {
-		// const updatedFilms = { ...films, date_watched: new Date() };
-
-		// const updatedUser = await User.findByIdAndUpdate(
-		// 	+user_id,
-		// 	{ $push: { films: updatedFilms } },
-		// 	{ new: true }
-		// );
 		res.status(200).send({ user: updatedUser });
 		await dbClose();
 	} catch (err: any) {
